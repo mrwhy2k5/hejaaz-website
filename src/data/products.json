@@ -1,0 +1,205 @@
+[
+  {
+    "id": "sli-tower-crane",
+    "name": "Safe Load Indicator – Tower Crane",
+    "slug": "safe-load-indicator-tower-crane",
+    "category": "Safe Load Indicator",
+    "tagline": "Precision load monitoring for tower cranes",
+    "overview": "Our Safe Load Indicator (SLI) for Tower Cranes provides real-time load monitoring, radius-based capacity calculation, and overload prevention. Designed for construction and high-rise projects where tower cranes operate at varying radii and heights.",
+    "systemComponents": ["Load cell / pressure transducer", "Angle sensor", "Length sensor", "Display unit with LCD", "Alarm unit (horn + light)", "Control unit with microcontroller"],
+    "workingPrinciple": "The system measures hook load via load cell or boom strain, boom angle via inclinometer, and boom length where applicable. A microprocessor computes the moment (load × radius) and compares it against the crane’s load chart. Visual and audible alarms trigger when approaching or exceeding safe limits.",
+    "keyFeatures": [
+      "Real-time load, radius, and moment display",
+      "Configurable overload and warning setpoints",
+      "Data logging and optional connectivity",
+      "Rugged enclosure (IP54+) for site conditions",
+      "Compliance with IS 14475 and similar standards"
+    ],
+    "specs": [
+      { "param": "Load range", "value": "Up to crane capacity" },
+      { "param": "Display", "value": "LCD, sunlight readable" },
+      { "param": "Power", "value": "24 V DC / crane supply" },
+      { "param": "Enclosure", "value": "IP54" },
+      { "param": "Operating temp", "value": "-10 °C to +55 °C" }
+    ],
+    "applications": ["Construction sites", "High-rise buildings", "Infrastructure projects", "Precast yards"],
+    "compliance": ["IS 14475", "Factory Act requirements", "Client-specific load charts"],
+    "imagePlaceholder": "/images/products/tower-crane.jpg"
+  },
+  {
+    "id": "sli-eot-crane",
+    "name": "Safe Load Indicator – EOT Crane",
+    "slug": "safe-load-indicator-eot-crane",
+    "category": "Safe Load Indicator",
+    "tagline": "Reliable overload protection for EOT cranes",
+    "overview": "The SLI for Electric Overhead Travelling (EOT) cranes ensures safe lifting in workshops, warehouses, and factories. It monitors hook load and provides immediate warning and cutoff to prevent overloading and equipment damage.",
+    "systemComponents": ["Load cell (compression/shear)", "Display unit", "Alarm relay unit", "Mounting hardware", "Cabling"],
+    "workingPrinciple": "A load cell installed in the rope or hook path measures the actual load. The display shows real-time weight and percentage of capacity. At configurable thresholds, warning and overload alarms activate; relays can disable hoist motion when overload is detected.",
+    "keyFeatures": [
+      "Direct weight and % capacity display",
+      "Two-stage alarm (warning / overload)",
+      "Relay outputs for hoist interlock",
+      "Simple calibration and maintenance",
+      "Suitable for single/double girder EOT"
+    ],
+    "specs": [
+      { "param": "Load range", "value": "1–100 T (configurable)" },
+      { "param": "Accuracy", "value": "±1% F.S." },
+      { "param": "Display", "value": "LED / LCD" },
+      { "param": "Power", "value": "230 V AC / 24 V DC" },
+      { "param": "Enclosure", "value": "IP54" }
+    ],
+    "applications": ["Workshops", "Warehouses", "Steel plants", "Foundries", "Manufacturing"],
+    "compliance": ["Factory Act", "IS 807", "ISO 4301", "Client specs"],
+    "imagePlaceholder": "/images/products/eot-crane.png"
+  },
+  {
+    "id": "sli-gantry-crane",
+    "name": "Safe Load Indicator – Gantry Crane",
+    "slug": "safe-load-indicator-gantry-crane",
+    "category": "Safe Load Indicator",
+    "tagline": "Load safety for gantry and semi-gantry cranes",
+    "overview": "Our SLI for Gantry Cranes covers rail-mounted and rubber-tyred gantry cranes used in ports, yards, and heavy fabrication. It provides overload protection and optional trolley position feedback for rated capacity limiters (RCL).",
+    "systemComponents": ["Load cell", "Display & alarm unit", "Optional boom/trolley position sensors", "Control unit", "Cabling"],
+    "workingPrinciple": "Load is measured via load cell; optional sensors provide trolley position for moment-based capacity where applicable. The system compares actual load (and moment) against the crane’s capacity and triggers alarms and interlocks as configured.",
+    "keyFeatures": [
+      "Overload and optional moment monitoring",
+      "Robust for outdoor and port environments",
+      "Optional connectivity for fleet management",
+      "Easy integration with existing crane PLCs"
+    ],
+    "specs": [
+      { "param": "Load range", "value": "As per crane capacity" },
+      { "param": "Accuracy", "value": "±1% F.S." },
+      { "param": "Enclosure", "value": "IP55" },
+      { "param": "Power", "value": "24 V DC / 230 V AC" }
+    ],
+    "applications": ["Ports", "Shipyards", "Heavy fabrication", "Container yards", "Logistics"],
+    "compliance": ["ISO 4301", "Factory Act", "Port regulations"],
+    "imagePlaceholder": "/images/products/gantry-crane.jpg"
+  },
+  {
+    "id": "sli-crawler-crane",
+    "name": "Safe Load Indicator – Crawler Crane",
+    "slug": "safe-load-indicator-crawler-crane",
+    "category": "Safe Load Indicator",
+    "tagline": "Load moment indication for crawler cranes",
+    "overview": "The SLI for Crawler Cranes supports lattice and telescopic boom crawlers used in civil, infrastructure, and heavy lifting. It provides load moment indication (LMI), radius, and boom angle with overload protection.",
+    "systemComponents": ["Load cell / pressure sensor", "Boom angle sensor", "Boom length sensor", "Slew angle sensor (optional)", "LMI display", "Alarm unit"],
+    "workingPrinciple": "Load, boom angle, length, and optional slew are measured continuously. The LMI computer uses the crane’s load chart to compute allowable load vs. actual load. Alarms and cutoffs activate when limits are exceeded.",
+    "keyFeatures": [
+      "Full LMI with load chart compliance",
+      "Multi-configuration support (boom combinations)",
+      "Outdoor-rated display and sensors",
+      "Optional data logger and telematics"
+    ],
+    "specs": [
+      { "param": "Load range", "value": "As per crane" },
+      { "param": "Display", "value": "Sunlight-readable LCD" },
+      { "param": "Enclosure", "value": "IP54 / IP65" },
+      { "param": "Operating temp", "value": "-20 °C to +55 °C" }
+    ],
+    "applications": ["Civil construction", "Wind turbine erection", "Heavy lifting", "Refineries", "Power projects"],
+    "compliance": ["IS 14475", "ISO 4301", "OEM load charts"],
+    "imagePlaceholder": "/images/products/crawler-crane.jpg"
+  },
+  {
+    "id": "sli-telescopic-crane",
+    "name": "Safe Load Indicator – Telescopic Crane",
+    "slug": "safe-load-indicator-telescopic-crane",
+    "category": "Safe Load Indicator",
+    "tagline": "Capacity monitoring for telescopic boom cranes",
+    "overview": "Our SLI for Telescopic Cranes covers mobile and truck-mounted cranes with telescopic booms. It provides real-time load, radius, boom length, and angle with overload and tip-over prevention.",
+    "systemComponents": ["Load cell", "Angle sensor", "Length sensors (multi-section)", "LMI display", "Alarm and cutoff unit"],
+    "workingPrinciple": "Load, boom angle, and extended length are measured. The LMI uses the crane’s load chart to determine safe capacity for the current configuration. Warning and overload stages trigger alerts and hoist/boom lockout as required.",
+    "keyFeatures": [
+      "Multi-section boom length measurement",
+      "Outrigger status consideration where applicable",
+      "Compact display for cab mounting",
+      "Calibration support for various OEMs"
+    ],
+    "specs": [
+      { "param": "Load range", "value": "As per crane" },
+      { "param": "Boom sections", "value": "2–5 typical" },
+      { "param": "Display", "value": "Cab-mount LCD" },
+      { "param": "Enclosure", "value": "IP54" }
+    ],
+    "applications": ["Mobile cranes", "Truck cranes", "Utility and rental fleets", "Construction"],
+    "compliance": ["IS 14475", "ISO 4301", "OEM specifications"],
+    "imagePlaceholder": "/images/products/telescopic-crane.jpg"
+  },
+  {
+    "id": "sli-pick-carry-crane",
+    "name": "Safe Load Indicator – Pick & Carry Crane",
+    "slug": "safe-load-indicator-pick-and-carry-crane",
+    "category": "Safe Load Indicator",
+    "tagline": "Load safety during pick-and-carry operations",
+    "overview": "The SLI for Pick & Carry Cranes addresses the specific risks of loading while travelling. It monitors load, boom configuration, and stability to prevent overload and tip-over during both static lift and pick-and-carry.",
+    "systemComponents": ["Load cell", "Boom angle sensor", "Boom length sensor", "Display unit", "Alarm and interlock"],
+    "workingPrinciple": "Load and boom geometry are measured in real time. The system accounts for reduced capacity during pick-and-carry (dynamic vs. static) and applies appropriate limits. Alarms and interlocks prevent unsafe travel.",
+    "keyFeatures": [
+      "Static and pick-and-carry capacity consideration",
+      "Clear warning before travel with load",
+      "Rugged design for yard and site use",
+      "Optional speed limiting when laden"
+    ],
+    "specs": [
+      { "param": "Load range", "value": "As per crane" },
+      { "param": "Display", "value": "LCD, cab or remote" },
+      { "param": "Enclosure", "value": "IP54" }
+    ],
+    "applications": ["Steel yards", "Fabrication", "Construction", "Logistics", "Warehouses"],
+    "compliance": ["IS 14475", "Factory Act", "OEM guidelines"],
+    "imagePlaceholder": "/images/products/pick-carry-crane.jpg"
+  },
+  {
+    "id": "sli-forklift",
+    "name": "Safe Load Indicator – Forklift",
+    "slug": "safe-load-indicator-forklift",
+    "category": "Safe Load Indicator",
+    "tagline": "Overload and tip-over protection for forklifts",
+    "overview": "Our Forklift SLI monitors load on the forks and lift height to prevent overload and forward tip-over. It helps comply with safety norms and reduces product and equipment damage in warehouses and factories.",
+    "systemComponents": ["Load cell (fork or mast)", "Height sensor", "Display unit", "Alarm (buzzer + light)"],
+    "workingPrinciple": "Load is measured via fork or mast-mounted load cell; height is measured via sensor. The system uses the truck’s load moment capacity to determine if the current load and height are safe. Alarms alert the operator when limits are approached or exceeded.",
+    "keyFeatures": [
+      "Load and lift height monitoring",
+      "Tip-over warning",
+      "Simple calibration",
+      "Fits most forklift brands"
+    ],
+    "specs": [
+      { "param": "Load range", "value": "1–10 T typical" },
+      { "param": "Accuracy", "value": "±2% F.S." },
+      { "param": "Display", "value": "LCD" },
+      { "param": "Power", "value": "12 / 24 V DC" }
+    ],
+    "applications": ["Warehouses", "Factories", "Logistics", "Cold storage", "Manufacturing"],
+    "compliance": ["Factory Act", "ISO 22915", "Client safety policies"],
+    "imagePlaceholder": "/images/products/forklift.webp"
+  },
+  {
+    "id": "sli-tipper-truck",
+    "name": "Safe Load Indicator – Tipper Truck",
+    "slug": "safe-load-indicator-tipper-truck",
+    "category": "Safe Load Indicator",
+    "tagline": "Payload monitoring for tippers and dump trucks",
+    "overview": "The Tipper Truck SLI measures payload using load cells on the chassis or axle. It helps prevent overloading, ensures compliance with transport regulations, and optimises loading cycles at quarries, mines, and construction sites.",
+    "systemComponents": ["Load cells (chassis/axle)", "Display unit (cab)", "Optional printer / connectivity"],
+    "workingPrinciple": "Load cells measure the weight on the axle(s) or chassis. Tare is stored; when loaded, net payload is displayed. The system can trigger alerts when legal or site-specific limits are exceeded.",
+    "keyFeatures": [
+      "Gross, tare, and net weight display",
+      "Overload warning vs. legal limits",
+      "Rugged for mining and quarry use",
+      "Optional RFID, printer, or fleet link"
+    ],
+    "specs": [
+      { "param": "Capacity", "value": "Up to 50 T typical" },
+      { "param": "Accuracy", "value": "±1–2% F.S." },
+      { "param": "Display", "value": "Cab-mount LCD" },
+      { "param": "Power", "value": "12 / 24 V DC" }
+    ],
+    "applications": ["Mining", "Quarries", "Construction", "Aggregate transport", "Dams and earthwork"],
+    "compliance": ["Motor Vehicles Act", "State transport rules", "Site policies"],
+    "imagePlaceholder": "/images/products/tipper-truck.jpg"
+  }
+]

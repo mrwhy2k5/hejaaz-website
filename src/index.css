@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-hejaaz-dark bg-white antialiased;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-padding {
+    @apply py-20 sm:py-24 lg:py-30;
+  }
+  .section-padding-sm {
+    @apply py-16 sm:py-20;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold bg-hejaaz-accent text-white hover:bg-hejaaz-accent-light transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hejaaz-accent focus:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 border-hejaaz-dark text-hejaaz-dark hover:bg-hejaaz-dark hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hejaaz-dark focus:ring-offset-2;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 border-hejaaz-accent text-hejaaz-accent hover:bg-hejaaz-accent hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-hejaaz-accent focus:ring-offset-2;
+  }
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 border-white/80 text-white hover:bg-white hover:text-hejaaz-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-hejaaz-dark;
+  }
+  .heading-xl {
+    @apply text-4xl sm:text-5xl lg:text-display font-bold tracking-tight text-hejaaz-dark;
+  }
+  .heading-lg {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-hejaaz-dark;
+  }
+  .heading-md {
+    @apply text-xl sm:text-2xl font-bold tracking-tight text-hejaaz-dark;
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "construction",
+    "name": "Construction & Infrastructure",
+    "description": "Tower cranes, mobile cranes, and material handling on construction sites. We supply Safe Load Indicators and support infrastructure projects across India.",
+    "icon": "Building2"
+  },
+  {
+    "id": "manufacturing",
+    "name": "Manufacturing & Workshops",
+    "description": "EOT cranes, gantry cranes, and forklifts in factories and workshops. Automation and safety solutions for production and logistics.",
+    "icon": "Factory"
+  },
+  {
+    "id": "steel-metals",
+    "name": "Steel & Metals",
+    "description": "Heavy-duty cranes, ladles, and material handling in steel plants, foundries, and metal fabrication. Robust SLIs and process automation.",
+    "icon": "Warehouse"
+  },
+  {
+    "id": "ports-logistics",
+    "name": "Ports & Logistics",
+    "description": "Gantry cranes, RTGs, and port equipment. Load monitoring and automation for efficient, safe cargo handling.",
+    "icon": "Ship"
+  },
+  {
+    "id": "mining-quarry",
+    "name": "Mining & Quarry",
+    "description": "Crawler cranes, excavators, and tipper trucks. Payload monitoring, overload protection, and ruggedized systems for harsh environments.",
+    "icon": "Mountain"
+  },
+  {
+    "id": "power-oil-gas",
+    "name": "Power, Oil & Gas",
+    "description": "Heavy lifting for turbines, refineries, and pipelines. Safety systems and automation that meet stringent EPC and client specs.",
+    "icon": "Zap"
+  },
+  {
+    "id": "epc-oem",
+    "name": "EPC & Crane OEMs",
+    "description": "We partner with EPC contractors and crane OEMs to supply SLIs, automation, and integration as per project and OEM specifications.",
+    "icon": "Users"
+  },
+  {
+    "id": "auditors",
+    "name": "Safety Auditors & Consultants",
+    "description": "Compliance-focused solutions for auditors and consultants. Documentation, calibration support, and traceability for safety audits.",
+    "icon": "ClipboardCheck"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "factory-automation",
+    "title": "Factory Automation",
+    "icon": "Factory",
+    "problem": "Manual processes lead to inconsistency, higher labour cost, and slower throughput. Quality and traceability suffer.",
+    "approach": "We design and implement PLC-based automation for assembly lines, material handling, and production equipment. Integration with MES and SCADA where needed.",
+    "value": "Higher productivity, consistent quality, better traceability, and reduced dependency on manual labour."
+  },
+  {
+    "id": "process-automation",
+    "title": "Process Automation",
+    "icon": "Settings",
+    "problem": "Process parameters (flow, temperature, pressure, pH) are not controlled precisely, affecting yield and product quality.",
+    "approach": "We implement DCS-style or PLC-based process control with sensors, actuators, and HMI. Loops tuned for stability and repeatability.",
+    "value": "Stable processes, improved yield, fewer rejects, and compliance with process specs."
+  },
+  {
+    "id": "pc-based-automation",
+    "title": "PC-Based Automation",
+    "icon": "Monitor",
+    "problem": "Flexible sequencing, data logging, and connectivity require more than a standard PLC. Upgrades are costly.",
+    "approach": "We use industrial PCs with soft PLC / runtime (e.g. CODESYS, TwinCAT) or PC + PLC hybrid. Ethernet-based I/O and OPC UA for connectivity.",
+    "value": "Flexibility, rich HMI, data logging, cloud connectivity, and easier future upgrades."
+  },
+  {
+    "id": "industrial-vision",
+    "title": "Industrial Vision Systems",
+    "icon": "Camera",
+    "problem": "Manual inspection is slow and subjective. Defects are missed or false rejects occur.",
+    "approach": "We design vision systems using industrial cameras, lighting, and image processing (rule-based or ML) for inspection, gauging, and guidance.",
+    "value": "Faster, objective inspection; defect detection; and integration with automation for pass/fail handling."
+  },
+  {
+    "id": "safety-integration",
+    "title": "Safety System Integration",
+    "icon": "Shield",
+    "problem": "Machinery lacks proper safety interlocks, light curtains, or E‑stops. Risk of injury and non-compliance.",
+    "approach": "We integrate safety PLCs, safety relays, light curtains, E‑stops, and access control. Designs align with ISO 13849 / IEC 62061.",
+    "value": "Safer machines, compliance with regulations, and reduced downtime from preventable incidents."
+  },
+  {
+    "id": "poc",
+    "title": "Proof of Concept (POC)",
+    "icon": "FlaskConical",
+    "problem": "Uncertainty whether automation or a new technology will work in your process before full investment.",
+    "approach": "We run focused POCs: minimal hardware, clear success criteria, and documented results. Quick iterations to validate feasibility.",
+    "value": "De-risked investment, clear go/no-go, and a roadmap for scale-up."
+  },
+  {
+    "id": "installation-amc",
+    "title": "Installation, Calibration & AMC",
+    "icon": "Wrench",
+    "problem": "New systems need correct installation and calibration; existing systems drift or fail without maintenance.",
+    "approach": "We provide installation, commissioning, calibration of weighing and safety systems, and Annual Maintenance Contracts (AMC) across PAN-India.",
+    "value": "Correct setup, sustained accuracy, fewer breakdowns, and reliable after-sales support."
+  }
+]
