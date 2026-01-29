@@ -8,14 +8,14 @@
   }
   body {
     @apply font-sans antialiased;
-    color: #334155;
-    background-color: #ffffff;
+    color: #1F2937;
+    background-color: #FFFFFF;
     letter-spacing: -0.01em;
   }
   
-  /* Better typography defaults */
+  /* Typography defaults */
   h1, h2, h3, h4, h5, h6 {
-    color: #0f172a;
+    color: #0B1F3A;
     text-wrap: balance;
   }
   
@@ -25,167 +25,164 @@
 }
 
 @layer components {
-  /* Container - wider for premium feel */
+  /* Container */
   .container-content {
     @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
   }
   
-  /* Section padding - generous whitespace like Klug Avalon */
+  /* Section padding */
   .section-padding {
-    @apply py-24 sm:py-28 lg:py-32;
+    @apply py-20 sm:py-24 lg:py-28;
   }
   .section-padding-sm {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-12 sm:py-16 lg:py-20;
   }
   
-  /* Section divider - subtle separator */
-  .section-divider {
-    border-top: 1px solid #e2e8f0;
-  }
-  
-  /* Primary CTA button - solid, rounded */
+  /* Primary CTA button - Safety Teal */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2.5 
-           px-7 py-3.5 rounded-full
+           px-6 py-3 rounded-lg
            text-sm font-semibold tracking-tight
-           shadow-sm
-           transition-all duration-300
+           transition-all duration-200
            focus:outline-none focus:ring-2 focus:ring-offset-2;
-    background-color: #0d9488;
-    color: #ffffff;
+    background-color: #1FB6AA;
+    color: #FFFFFF;
   }
   .btn-primary:hover {
-    background-color: #0f766e;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    background-color: #14a89c;
   }
   .btn-primary:focus {
-    --tw-ring-color: #0d9488;
+    --tw-ring-color: #1FB6AA;
   }
   
   /* Secondary button - outline style */
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2.5 
-           px-7 py-3.5 rounded-full
+           px-6 py-3 rounded-lg
            text-sm font-semibold tracking-tight
            border-2
-           transition-all duration-300
+           transition-all duration-200
            focus:outline-none focus:ring-2 focus:ring-offset-2;
-    border-color: #0f172a;
-    color: #0f172a;
+    border-color: #0B1F3A;
+    color: #0B1F3A;
+    background-color: transparent;
   }
   .btn-secondary:hover {
-    background-color: #0f172a;
-    color: #ffffff;
+    background-color: #0B1F3A;
+    color: #FFFFFF;
   }
   .btn-secondary:focus {
-    --tw-ring-color: #0f172a;
+    --tw-ring-color: #0B1F3A;
   }
   
-  /* Outline button - accent color */
+  /* Outline button - accent teal */
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2.5 
-           px-7 py-3.5 rounded-full
+           px-6 py-3 rounded-lg
            text-sm font-semibold tracking-tight
            border-2
-           transition-all duration-300
+           transition-all duration-200
            focus:outline-none focus:ring-2 focus:ring-offset-2;
-    border-color: #0d9488;
-    color: #0d9488;
+    border-color: #1FB6AA;
+    color: #1FB6AA;
+    background-color: transparent;
   }
   .btn-outline:hover {
-    background-color: #0d9488;
-    color: #ffffff;
+    background-color: #1FB6AA;
+    color: #FFFFFF;
   }
   .btn-outline:focus {
-    --tw-ring-color: #0d9488;
+    --tw-ring-color: #1FB6AA;
   }
   
   /* Light outline button - for dark backgrounds */
   .btn-outline-light {
     @apply inline-flex items-center justify-center gap-2.5 
-           px-7 py-3.5 rounded-full
+           px-6 py-3 rounded-lg
            text-sm font-semibold tracking-tight
            border-2
-           transition-all duration-300
+           transition-all duration-200
            focus:outline-none focus:ring-2 focus:ring-offset-2;
     border-color: rgba(255, 255, 255, 0.3);
-    color: #ffffff;
+    color: #FFFFFF;
+    background-color: transparent;
   }
   .btn-outline-light:hover {
-    background-color: #ffffff;
-    color: #0f172a;
+    background-color: #FFFFFF;
+    color: #0B1F3A;
   }
   .btn-outline-light:focus {
     --tw-ring-color: rgba(255, 255, 255, 0.5);
   }
   
-  /* Ghost button - minimal style */
+  /* Ghost button */
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 
-           px-5 py-2.5 rounded-lg
+           px-4 py-2 rounded-lg
            text-sm font-medium
            transition-all duration-200;
-    color: #64748b;
+    color: #6B7280;
+    background-color: transparent;
   }
   .btn-ghost:hover {
-    color: #0f172a;
-    background-color: #f8fafc;
+    color: #0B1F3A;
+    background-color: #F6F8FB;
   }
   
-  /* Typography - Large bold headings */
+  /* Typography */
   .heading-xl {
     @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-none;
-    color: #0f172a;
+    color: #0B1F3A;
   }
   .heading-lg {
     @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight;
-    color: #0f172a;
+    color: #0B1F3A;
   }
   .heading-md {
     @apply text-2xl sm:text-3xl font-bold tracking-tight leading-tight;
-    color: #0f172a;
+    color: #0B1F3A;
   }
   .heading-sm {
     @apply text-xl sm:text-2xl font-bold tracking-tight leading-snug;
-    color: #0f172a;
+    color: #0B1F3A;
   }
   
   /* Body text */
   .body-lg {
     @apply text-lg sm:text-xl leading-relaxed;
-    color: #64748b;
+    color: #6B7280;
   }
   .body-md {
     @apply text-base leading-relaxed;
-    color: #64748b;
+    color: #6B7280;
   }
   
-  /* Card styles - soft shadows, clean */
+  /* Card styles */
   .card {
-    @apply rounded-2xl border overflow-hidden
-           transition-all duration-300;
-    background-color: #ffffff;
-    border-color: #e2e8f0;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+    @apply rounded-xl border overflow-hidden
+           transition-all duration-200;
+    background-color: #FFFFFF;
+    border-color: #E5E7EB;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
   }
   .card:hover {
     box-shadow: 0 10px 40px -10px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.05);
   }
   .card-elevated {
-    @apply rounded-2xl;
-    background-color: #ffffff;
+    @apply rounded-xl;
+    background-color: #FFFFFF;
     box-shadow: 0 20px 60px -15px rgb(0 0 0 / 0.15);
   }
   
   /* Label/tag styles */
   .label {
     @apply text-xs font-semibold uppercase tracking-wider;
-    color: #0d9488;
+    color: #1FB6AA;
   }
 }
 
 /* Custom selection color */
 ::selection {
-  background-color: rgba(13, 148, 136, 0.2);
-  color: #0f172a;
+  background-color: rgba(31, 182, 170, 0.2);
+  color: #0B1F3A;
 }

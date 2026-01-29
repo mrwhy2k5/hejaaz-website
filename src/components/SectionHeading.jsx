@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion'
 
-/**
- * Reusable section title + optional subtitle + optional label.
- * Klug Avalon style: large bold headings, generous spacing, minimal text.
- */
 export default function SectionHeading({
   title,
   subtitle,
@@ -11,7 +7,7 @@ export default function SectionHeading({
   align = 'left',
   className = '',
   animate = true,
-  size = 'lg', // 'lg' | 'md' | 'sm'
+  size = 'lg',
 }) {
   const alignClass = {
     left: 'text-left',
@@ -28,11 +24,11 @@ export default function SectionHeading({
   const content = (
     <div className={`${alignClass} ${className}`}>
       {label && (
-        <span className="label block mb-4">{label}</span>
+        <span className="block mb-3 text-xs font-semibold uppercase tracking-wider text-hejaaz-secondary">{label}</span>
       )}
       <h2 className={titleClass}>{title}</h2>
       {subtitle && (
-        <p className={`mt-5 body-lg max-w-2xl ${align === 'center' ? 'mx-auto' : ''}`}>
+        <p className={`mt-4 text-lg text-hejaaz-text-light leading-relaxed max-w-2xl ${align === 'center' ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}
@@ -42,10 +38,10 @@ export default function SectionHeading({
   if (animate) {
     return (
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4 }}
       >
         {content}
       </motion.div>

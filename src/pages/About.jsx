@@ -62,17 +62,17 @@ export default function About() {
       {/* Story Section */}
       <section className="section-padding bg-hejaaz-white">
         <div className="container-content">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <SectionHeading
                 label="Our Story"
                 title="Built on Engineering Excellence"
               />
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mt-8 space-y-6 text-hejaaz-gray-light leading-relaxed"
+                className="mt-6 space-y-5 text-hejaaz-text-light leading-relaxed"
               >
                 <p className="text-lg">
                   Hejaaz Technologies is an industrial automation and crane safety company serving OEMs, EPCs, factories, and safety auditors across India.
@@ -88,23 +88,23 @@ export default function About() {
 
             {/* Timeline */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
+              transition={{ duration: 0.5 }}
+              className="space-y-4"
             >
-              {timeline.map((item, i) => (
+              {timeline.map((item) => (
                 <div
                   key={item.year}
-                  className="flex gap-6 p-6 rounded-2xl bg-hejaaz-surface border border-hejaaz-border"
+                  className="flex gap-5 p-5 rounded-xl bg-hejaaz-surface border border-hejaaz-border"
                 >
-                  <span className="w-16 h-16 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0 text-sm font-bold text-hejaaz-accent">
+                  <span className="w-14 h-14 rounded-xl bg-hejaaz-secondary/10 flex items-center justify-center shrink-0 text-sm font-bold text-hejaaz-secondary">
                     {item.year}
                   </span>
                   <div>
-                    <h3 className="font-bold text-hejaaz-dark">{item.title}</h3>
-                    <p className="mt-1 text-sm text-hejaaz-gray-light">{item.desc}</p>
+                    <h3 className="font-bold text-hejaaz-primary">{item.title}</h3>
+                    <p className="mt-1 text-sm text-hejaaz-text-light">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -121,33 +121,33 @@ export default function About() {
             title="Vision & Mission"
             align="center"
           />
-          <div className="mt-16 grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+          <div className="mt-14 grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="card p-8 lg:p-10"
+              className="card p-7"
             >
-              <div className="w-14 h-14 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center">
-                <Eye className="w-7 h-7 text-hejaaz-accent" aria-hidden />
+              <div className="w-12 h-12 rounded-xl bg-hejaaz-secondary/10 flex items-center justify-center">
+                <Eye className="w-6 h-6 text-hejaaz-secondary" aria-hidden />
               </div>
-              <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">Vision</h3>
-              <p className="mt-4 text-hejaaz-gray-light leading-relaxed">
+              <h3 className="mt-5 text-lg font-bold text-hejaaz-primary">Vision</h3>
+              <p className="mt-3 text-hejaaz-text-light leading-relaxed">
                 To be a trusted partner in industrial safety and automation, enabling our customers to operate reliably and comply with the highest standards.
               </p>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="card p-8 lg:p-10"
+              className="card p-7"
             >
-              <div className="w-14 h-14 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center">
-                <Target className="w-7 h-7 text-hejaaz-accent" aria-hidden />
+              <div className="w-12 h-12 rounded-xl bg-hejaaz-secondary/10 flex items-center justify-center">
+                <Target className="w-6 h-6 text-hejaaz-secondary" aria-hidden />
               </div>
-              <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">Mission</h3>
-              <p className="mt-4 text-hejaaz-gray-light leading-relaxed">
+              <h3 className="mt-5 text-lg font-bold text-hejaaz-primary">Mission</h3>
+              <p className="mt-3 text-hejaaz-text-light leading-relaxed">
                 To design, supply, and support best-in-class crane safety and automation solutions with strong after-sales service across India.
               </p>
             </motion.div>
@@ -163,19 +163,19 @@ export default function About() {
             title="What We Stand For"
             align="center"
           />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.4 }}
-                className="p-6 rounded-2xl bg-hejaaz-surface border border-hejaaz-border"
+                transition={{ delay: i * 0.06, duration: 0.35 }}
+                className="p-5 rounded-xl bg-hejaaz-surface border border-hejaaz-border"
               >
-                <v.icon className="w-10 h-10 text-hejaaz-accent" aria-hidden />
-                <h3 className="mt-5 font-bold text-hejaaz-dark">{v.title}</h3>
-                <p className="mt-3 text-sm text-hejaaz-gray-light leading-relaxed">
+                <v.icon className="w-8 h-8 text-hejaaz-secondary" aria-hidden />
+                <h3 className="mt-4 font-bold text-hejaaz-primary">{v.title}</h3>
+                <p className="mt-2 text-sm text-hejaaz-text-light leading-relaxed">
                   {v.desc}
                 </p>
               </motion.div>
@@ -185,9 +185,9 @@ export default function About() {
       </section>
 
       {/* Why Partner With Us */}
-      <section className="section-padding bg-hejaaz-dark text-hejaaz-white">
+      <section className="section-padding bg-hejaaz-primary text-hejaaz-white">
         <div className="container-content">
-          <div className="max-w-narrow">
+          <div className="max-w-2xl">
             <SectionHeading
               label="Why Us"
               title="Why Partner With Hejaaz"
@@ -195,19 +195,19 @@ export default function About() {
               animate={false}
             />
             <motion.ul
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 grid sm:grid-cols-2 gap-4"
+              className="mt-10 grid sm:grid-cols-2 gap-3"
             >
-              {highlights.map((item, i) => (
-                <li key={item} className="flex gap-4 p-4 rounded-xl bg-hejaaz-white/5">
-                  <CheckCircle2 className="shrink-0 w-5 h-5 text-hejaaz-accent-light mt-0.5" aria-hidden />
-                  <span className="text-hejaaz-gray-muted text-sm leading-relaxed">{item}</span>
+              {highlights.map((item) => (
+                <li key={item} className="flex gap-3 p-3.5 rounded-lg bg-hejaaz-white/5">
+                  <CheckCircle2 className="shrink-0 w-5 h-5 text-hejaaz-secondary mt-0.5" aria-hidden />
+                  <span className="text-hejaaz-text-muted text-sm leading-relaxed">{item}</span>
                 </li>
               ))}
             </motion.ul>
-            <div className="mt-12">
+            <div className="mt-10">
               <CTAButtons variant="dark" />
             </div>
           </div>

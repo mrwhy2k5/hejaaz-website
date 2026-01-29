@@ -51,25 +51,25 @@ export default function Industries() {
             align="center"
             animate={false}
           />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {industriesData.map((ind, i) => {
               const Icon = iconMap[ind.icon] || Factory
               return (
                 <motion.div
                   key={ind.id}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.05, duration: 0.4 }}
-                  className="card p-8 group hover:-translate-y-1"
+                  transition={{ delay: i * 0.05, duration: 0.35 }}
+                  className="card p-6 group hover:-translate-y-0.5"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center group-hover:bg-hejaaz-accent/15 transition-colors">
-                    <Icon className="w-7 h-7 text-hejaaz-accent" aria-hidden />
+                  <div className="w-12 h-12 rounded-xl bg-hejaaz-secondary/10 flex items-center justify-center group-hover:bg-hejaaz-secondary/15 transition-colors">
+                    <Icon className="w-6 h-6 text-hejaaz-secondary" aria-hidden />
                   </div>
-                  <h3 className="mt-6 text-lg font-bold text-hejaaz-dark">
+                  <h3 className="mt-5 text-base font-bold text-hejaaz-primary">
                     {ind.name}
                   </h3>
-                  <p className="mt-3 text-sm text-hejaaz-gray-light leading-relaxed">
+                  <p className="mt-2 text-sm text-hejaaz-text-light leading-relaxed">
                     {ind.description}
                   </p>
                 </motion.div>
@@ -82,7 +82,7 @@ export default function Industries() {
       {/* Value Proposition */}
       <section className="section-padding bg-hejaaz-surface">
         <div className="container-content">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <SectionHeading
                 label="Our Value"
@@ -90,10 +90,10 @@ export default function Industries() {
                 subtitle="We understand the unique requirements of each sector. Our solutions are tailored to meet specific operational and compliance needs."
               />
               <motion.ul
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mt-10 space-y-4"
+                className="mt-8 space-y-3"
               >
                 {[
                   'Custom solutions for each industry vertical',
@@ -101,25 +101,25 @@ export default function Industries() {
                   'Understanding of operational environments',
                   'Industry-standard documentation and support',
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="w-2 h-2 rounded-full bg-hejaaz-accent mt-2.5 shrink-0" />
-                    <span className="text-hejaaz-gray-light leading-relaxed">{item}</span>
+                  <li key={i} className="flex gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-hejaaz-secondary mt-2.5 shrink-0" />
+                    <span className="text-hejaaz-text-light leading-relaxed">{item}</span>
                   </li>
                 ))}
               </motion.ul>
             </div>
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-hejaaz-white rounded-2xl border border-hejaaz-border p-8 lg:p-10"
+              transition={{ duration: 0.5 }}
+              className="bg-hejaaz-white rounded-xl border border-hejaaz-border p-7"
             >
               <h3 className="heading-sm">Work With Us</h3>
-              <p className="mt-4 text-hejaaz-gray-light leading-relaxed">
+              <p className="mt-4 text-hejaaz-text-light leading-relaxed">
                 Whether you're an OEM, EPC, factory, or safety auditor, we have the expertise to support your crane safety and automation needs.
               </p>
-              <div className="mt-8">
+              <div className="mt-6">
                 <CTAButtons />
               </div>
             </motion.div>
@@ -128,22 +128,22 @@ export default function Industries() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-hejaaz-dark text-hejaaz-white">
+      <section className="section-padding bg-hejaaz-primary text-hejaaz-white">
         <div className="container-content">
-          <div className="max-w-narrow">
+          <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="label text-hejaaz-accent-light">Get Started</span>
-              <h2 className="mt-4 heading-lg text-hejaaz-white">
+              <span className="text-xs font-semibold uppercase tracking-wider text-hejaaz-secondary">Get Started</span>
+              <h2 className="mt-3 heading-lg text-hejaaz-white">
                 Ready to discuss your requirements?
               </h2>
-              <p className="mt-6 text-hejaaz-gray-muted text-lg leading-relaxed max-w-lg">
+              <p className="mt-5 text-hejaaz-text-muted text-lg leading-relaxed max-w-lg">
                 Contact us for a consultation tailored to your industry and operational needs.
               </p>
-              <div className="mt-10">
+              <div className="mt-8">
                 <CTAButtons variant="dark" />
               </div>
             </motion.div>

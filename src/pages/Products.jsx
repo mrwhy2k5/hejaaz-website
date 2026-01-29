@@ -31,7 +31,7 @@ export default function Products() {
             align="center"
             animate={false}
           />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {productsData.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -42,7 +42,7 @@ export default function Products() {
       {/* Features Overview */}
       <section className="section-padding bg-hejaaz-surface">
         <div className="container-content">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <SectionHeading
                 label="Why Our Products"
@@ -50,10 +50,10 @@ export default function Products() {
                 subtitle="All products come with detailed technical specifications, compliance documentation, and support for installation and calibration."
               />
               <motion.ul
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mt-10 space-y-4"
+                className="mt-8 space-y-3"
               >
                 {[
                   'Microcontroller-based digital systems',
@@ -63,25 +63,25 @@ export default function Products() {
                   'IP65+ rated for harsh environments',
                   'Factory Act and IS 14475 compliant',
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-4">
-                    <span className="w-2 h-2 rounded-full bg-hejaaz-accent mt-2.5 shrink-0" />
-                    <span className="text-hejaaz-gray-light leading-relaxed">{item}</span>
+                  <li key={i} className="flex gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-hejaaz-secondary mt-2.5 shrink-0" />
+                    <span className="text-hejaaz-text-light leading-relaxed">{item}</span>
                   </li>
                 ))}
               </motion.ul>
             </div>
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-hejaaz-white rounded-2xl border border-hejaaz-border p-8 lg:p-10"
+              transition={{ duration: 0.5 }}
+              className="bg-hejaaz-white rounded-xl border border-hejaaz-border p-7"
             >
               <h3 className="heading-sm">Need Technical Support?</h3>
-              <p className="mt-4 text-hejaaz-gray-light leading-relaxed">
+              <p className="mt-4 text-hejaaz-text-light leading-relaxed">
                 Our engineering team can help you select the right system for your application. Get a detailed technical quote with specifications tailored to your requirements.
               </p>
-              <div className="mt-8">
+              <div className="mt-6">
                 <CTAButtons />
               </div>
             </motion.div>

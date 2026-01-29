@@ -7,7 +7,6 @@ import {
   Shield,
   FlaskConical,
   Wrench,
-  ArrowRight,
 } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
@@ -50,38 +49,38 @@ export default function Services() {
             align="center"
             animate={false}
           />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {servicesData.map((svc, i) => {
               const Icon = iconMap[svc.icon] || Settings
               return (
                 <motion.article
                   key={svc.id}
-                  initial={{ opacity: 0, y: 28 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ delay: i * 0.06, duration: 0.5 }}
-                  className="card p-8 group hover:-translate-y-1"
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06, duration: 0.4 }}
+                  className="card p-6 group hover:-translate-y-0.5"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center group-hover:bg-hejaaz-accent/15 transition-colors">
-                    <Icon className="w-7 h-7 text-hejaaz-accent" aria-hidden />
+                  <div className="w-12 h-12 rounded-xl bg-hejaaz-secondary/10 flex items-center justify-center group-hover:bg-hejaaz-secondary/15 transition-colors">
+                    <Icon className="w-6 h-6 text-hejaaz-secondary" aria-hidden />
                   </div>
-                  <h2 className="mt-6 text-xl font-bold text-hejaaz-dark">
+                  <h2 className="mt-5 text-lg font-bold text-hejaaz-primary">
                     {svc.title}
                   </h2>
-                  <p className="mt-3 text-hejaaz-gray-light leading-relaxed">
+                  <p className="mt-3 text-hejaaz-text-light leading-relaxed text-sm">
                     {svc.value}
                   </p>
 
-                  <div className="mt-6 pt-6 border-t border-hejaaz-border space-y-5">
+                  <div className="mt-5 pt-5 border-t border-hejaaz-border space-y-4">
                     <div>
-                      <h3 className="label mb-2">Problem Solved</h3>
-                      <p className="text-sm text-hejaaz-gray-light leading-relaxed">
+                      <h3 className="text-xs font-semibold uppercase tracking-wider text-hejaaz-secondary mb-1.5">Problem Solved</h3>
+                      <p className="text-sm text-hejaaz-text-light leading-relaxed">
                         {svc.problem}
                       </p>
                     </div>
                     <div>
-                      <h3 className="label mb-2">Our Approach</h3>
-                      <p className="text-sm text-hejaaz-gray-light leading-relaxed">
+                      <h3 className="text-xs font-semibold uppercase tracking-wider text-hejaaz-secondary mb-1.5">Our Approach</h3>
+                      <p className="text-sm text-hejaaz-text-light leading-relaxed">
                         {svc.approach}
                       </p>
                     </div>
@@ -96,7 +95,7 @@ export default function Services() {
       {/* Support Section */}
       <section className="section-padding bg-hejaaz-surface">
         <div className="container-content">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <SectionHeading
                 label="Support"
@@ -104,19 +103,19 @@ export default function Services() {
                 subtitle="Installation, calibration, and Annual Maintenance Contracts across all 28 Indian states. We're where you need us."
               />
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mt-10"
+                className="mt-8"
               >
                 <CTAButtons />
               </motion.div>
             </div>
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 32 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="grid grid-cols-2 gap-4"
             >
               {[
@@ -124,13 +123,13 @@ export default function Services() {
                 { label: 'Calibration', desc: 'Precision tuning' },
                 { label: 'AMC', desc: 'Annual maintenance' },
                 { label: 'Training', desc: 'Operator support' },
-              ].map((item, i) => (
+              ].map((item) => (
                 <div
                   key={item.label}
-                  className="p-6 rounded-2xl bg-hejaaz-white border border-hejaaz-border"
+                  className="p-5 rounded-xl bg-hejaaz-white border border-hejaaz-border"
                 >
-                  <p className="font-bold text-hejaaz-dark">{item.label}</p>
-                  <p className="mt-1 text-sm text-hejaaz-gray-light">{item.desc}</p>
+                  <p className="font-bold text-hejaaz-primary">{item.label}</p>
+                  <p className="mt-1 text-sm text-hejaaz-text-light">{item.desc}</p>
                 </div>
               ))}
             </motion.div>
@@ -139,22 +138,22 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-hejaaz-dark text-hejaaz-white">
+      <section className="section-padding bg-hejaaz-primary text-hejaaz-white">
         <div className="container-content">
-          <div className="max-w-narrow">
+          <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <span className="label text-hejaaz-accent-light">Get Started</span>
-              <h2 className="mt-4 heading-lg text-hejaaz-white">
+              <span className="text-xs font-semibold uppercase tracking-wider text-hejaaz-secondary">Get Started</span>
+              <h2 className="mt-3 heading-lg text-hejaaz-white">
                 Need a custom solution?
               </h2>
-              <p className="mt-6 text-hejaaz-gray-muted text-lg leading-relaxed max-w-lg">
+              <p className="mt-5 text-hejaaz-text-muted text-lg leading-relaxed max-w-lg">
                 Our engineering team can help you scope and implement the right automation solution for your specific requirements.
               </p>
-              <div className="mt-10">
+              <div className="mt-8">
                 <CTAButtons variant="dark" />
               </div>
             </motion.div>

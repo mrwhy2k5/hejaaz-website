@@ -64,7 +64,7 @@ export default function Contact() {
 
       <section className="section-padding bg-hejaaz-white">
         <div className="container-content">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
             {/* Left: Contact Info */}
             <div className="lg:col-span-5">
               <SectionHeading
@@ -73,19 +73,19 @@ export default function Contact() {
                 animate={false}
               />
 
-              <div className="mt-10 space-y-6">
+              <div className="mt-8 space-y-4">
                 <motion.div
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="flex gap-5 p-5 rounded-2xl bg-hejaaz-surface border border-hejaaz-border"
+                  className="flex gap-4 p-4 rounded-xl bg-hejaaz-surface border border-hejaaz-border"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5 text-hejaaz-accent" aria-hidden />
+                  <div className="w-10 h-10 rounded-lg bg-hejaaz-secondary/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-hejaaz-secondary" aria-hidden />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-hejaaz-dark">Office Address</h3>
-                    <p className="mt-2 text-sm text-hejaaz-gray-light leading-relaxed">
+                    <h3 className="font-semibold text-hejaaz-primary text-sm">Office Address</h3>
+                    <p className="mt-1 text-sm text-hejaaz-text-light leading-relaxed">
                       {address}
                     </p>
                   </div>
@@ -93,18 +93,18 @@ export default function Contact() {
 
                 <motion.a
                   href={`tel:${phone.replace(/\s/g, '')}`}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.05 }}
-                  className="flex gap-5 p-5 rounded-2xl bg-hejaaz-surface border border-hejaaz-border hover:border-hejaaz-accent/30 transition-colors group"
+                  className="flex gap-4 p-4 rounded-xl bg-hejaaz-surface border border-hejaaz-border hover:border-hejaaz-secondary/30 transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0 group-hover:bg-hejaaz-accent/20 transition-colors">
-                    <Phone className="w-5 h-5 text-hejaaz-accent" aria-hidden />
+                  <div className="w-10 h-10 rounded-lg bg-hejaaz-secondary/10 flex items-center justify-center shrink-0 group-hover:bg-hejaaz-secondary/20 transition-colors">
+                    <Phone className="w-5 h-5 text-hejaaz-secondary" aria-hidden />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-hejaaz-dark">Phone</h3>
-                    <p className="mt-1 text-sm text-hejaaz-gray-light group-hover:text-hejaaz-accent transition-colors">
+                    <h3 className="font-semibold text-hejaaz-primary text-sm">Phone</h3>
+                    <p className="mt-1 text-sm text-hejaaz-text-light group-hover:text-hejaaz-secondary transition-colors">
                       {phone}
                     </p>
                   </div>
@@ -112,36 +112,36 @@ export default function Contact() {
 
                 <motion.a
                   href={`mailto:${email}`}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="flex gap-5 p-5 rounded-2xl bg-hejaaz-surface border border-hejaaz-border hover:border-hejaaz-accent/30 transition-colors group"
+                  className="flex gap-4 p-4 rounded-xl bg-hejaaz-surface border border-hejaaz-border hover:border-hejaaz-secondary/30 transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0 group-hover:bg-hejaaz-accent/20 transition-colors">
-                    <Mail className="w-5 h-5 text-hejaaz-accent" aria-hidden />
+                  <div className="w-10 h-10 rounded-lg bg-hejaaz-secondary/10 flex items-center justify-center shrink-0 group-hover:bg-hejaaz-secondary/20 transition-colors">
+                    <Mail className="w-5 h-5 text-hejaaz-secondary" aria-hidden />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-hejaaz-dark">Email</h3>
-                    <p className="mt-1 text-sm text-hejaaz-gray-light group-hover:text-hejaaz-accent transition-colors">
+                    <h3 className="font-semibold text-hejaaz-primary text-sm">Email</h3>
+                    <p className="mt-1 text-sm text-hejaaz-text-light group-hover:text-hejaaz-secondary transition-colors">
                       {email}
                     </p>
                   </div>
                 </motion.a>
 
                 <motion.div
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.15 }}
-                  className="flex gap-5 p-5 rounded-2xl bg-hejaaz-surface border border-hejaaz-border"
+                  className="flex gap-4 p-4 rounded-xl bg-hejaaz-surface border border-hejaaz-border"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-hejaaz-accent" aria-hidden />
+                  <div className="w-10 h-10 rounded-lg bg-hejaaz-secondary/10 flex items-center justify-center shrink-0">
+                    <Clock className="w-5 h-5 text-hejaaz-secondary" aria-hidden />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-hejaaz-dark">Response Time</h3>
-                    <p className="mt-1 text-sm text-hejaaz-gray-light">
+                    <h3 className="font-semibold text-hejaaz-primary text-sm">Response Time</h3>
+                    <p className="mt-1 text-sm text-hejaaz-text-light">
                       Within 24 business hours
                     </p>
                   </div>
@@ -152,47 +152,47 @@ export default function Contact() {
             {/* Right: Form Card */}
             <div className="lg:col-span-7">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="card p-8 lg:p-10"
+                className="card p-6 lg:p-8"
               >
                 <h2 className="heading-sm">Send us a message</h2>
-                <p className="mt-2 text-hejaaz-gray-light">
+                <p className="mt-2 text-hejaaz-text-light text-sm">
                   Fill out the form and we will get back to you shortly.
                 </p>
 
                 {submitted ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="mt-8 p-8 rounded-2xl bg-hejaaz-accent/10 border border-hejaaz-accent/20 text-center"
+                    className="mt-6 p-6 rounded-xl bg-hejaaz-secondary/10 border border-hejaaz-secondary/20 text-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-hejaaz-accent/20 flex items-center justify-center mx-auto">
-                      <CheckCircle2 className="w-8 h-8 text-hejaaz-accent" />
+                    <div className="w-14 h-14 rounded-full bg-hejaaz-secondary/20 flex items-center justify-center mx-auto">
+                      <CheckCircle2 className="w-7 h-7 text-hejaaz-secondary" />
                     </div>
-                    <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">
+                    <h3 className="mt-5 text-lg font-bold text-hejaaz-primary">
                       Message Sent
                     </h3>
-                    <p className="mt-3 text-hejaaz-gray-light">
+                    <p className="mt-2 text-hejaaz-text-light text-sm">
                       Thank you for reaching out. We will respond within 24 hours.
                     </p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="mt-6 text-hejaaz-accent font-semibold hover:underline"
+                      className="mt-5 text-hejaaz-secondary font-semibold hover:underline text-sm"
                     >
                       Send another message
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
+                  <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                    <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-sm font-medium text-hejaaz-dark mb-2"
+                          className="block text-sm font-medium text-hejaaz-primary mb-1.5"
                         >
-                          Name <span className="text-hejaaz-accent">*</span>
+                          Name <span className="text-hejaaz-secondary">*</span>
                         </label>
                         <input
                           id="name"
@@ -200,13 +200,13 @@ export default function Contact() {
                           type="text"
                           value={form.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3.5 rounded-xl border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-accent focus:border-hejaaz-accent outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-secondary focus:border-hejaaz-secondary outline-none transition-all text-sm"
                           placeholder="Your name"
                           aria-invalid={!!errors.name}
                           aria-describedby={errors.name ? 'name-error' : undefined}
                         />
                         {errors.name && (
-                          <p id="name-error" className="mt-2 text-sm text-red-600">
+                          <p id="name-error" className="mt-1.5 text-sm text-red-600">
                             {errors.name}
                           </p>
                         )}
@@ -214,9 +214,9 @@ export default function Contact() {
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium text-hejaaz-dark mb-2"
+                          className="block text-sm font-medium text-hejaaz-primary mb-1.5"
                         >
-                          Email <span className="text-hejaaz-accent">*</span>
+                          Email <span className="text-hejaaz-secondary">*</span>
                         </label>
                         <input
                           id="email"
@@ -224,23 +224,23 @@ export default function Contact() {
                           type="email"
                           value={form.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3.5 rounded-xl border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-accent focus:border-hejaaz-accent outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-secondary focus:border-hejaaz-secondary outline-none transition-all text-sm"
                           placeholder="you@company.com"
                           aria-invalid={!!errors.email}
                           aria-describedby={errors.email ? 'email-error' : undefined}
                         />
                         {errors.email && (
-                          <p id="email-error" className="mt-2 text-sm text-red-600">
+                          <p id="email-error" className="mt-1.5 text-sm text-red-600">
                             {errors.email}
                           </p>
                         )}
                       </div>
                     </div>
-                    <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label
                           htmlFor="phone"
-                          className="block text-sm font-medium text-hejaaz-dark mb-2"
+                          className="block text-sm font-medium text-hejaaz-primary mb-1.5"
                         >
                           Phone
                         </label>
@@ -250,14 +250,14 @@ export default function Contact() {
                           type="tel"
                           value={form.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3.5 rounded-xl border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-accent focus:border-hejaaz-accent outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-secondary focus:border-hejaaz-secondary outline-none transition-all text-sm"
                           placeholder="+91 ..."
                         />
                       </div>
                       <div>
                         <label
                           htmlFor="company"
-                          className="block text-sm font-medium text-hejaaz-dark mb-2"
+                          className="block text-sm font-medium text-hejaaz-primary mb-1.5"
                         >
                           Company
                         </label>
@@ -267,7 +267,7 @@ export default function Contact() {
                           type="text"
                           value={form.company}
                           onChange={handleChange}
-                          className="w-full px-4 py-3.5 rounded-xl border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-accent focus:border-hejaaz-accent outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-secondary focus:border-hejaaz-secondary outline-none transition-all text-sm"
                           placeholder="Company name"
                         />
                       </div>
@@ -275,9 +275,9 @@ export default function Contact() {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm font-medium text-hejaaz-dark mb-2"
+                        className="block text-sm font-medium text-hejaaz-primary mb-1.5"
                       >
-                        Message <span className="text-hejaaz-accent">*</span>
+                        Message <span className="text-hejaaz-secondary">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -285,13 +285,13 @@ export default function Contact() {
                         rows={5}
                         value={form.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-3.5 rounded-xl border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-accent focus:border-hejaaz-accent outline-none transition-all resize-y"
+                        className="w-full px-4 py-3 rounded-lg border border-hejaaz-border bg-hejaaz-white focus:ring-2 focus:ring-hejaaz-secondary focus:border-hejaaz-secondary outline-none transition-all resize-y text-sm"
                         placeholder="Tell us about your requirements..."
                         aria-invalid={!!errors.message}
                         aria-describedby={errors.message ? 'message-error' : undefined}
                       />
                       {errors.message && (
-                        <p id="message-error" className="mt-2 text-sm text-red-600">
+                        <p id="message-error" className="mt-1.5 text-sm text-red-600">
                           {errors.message}
                         </p>
                       )}

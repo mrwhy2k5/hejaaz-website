@@ -1,14 +1,10 @@
 import { motion } from 'framer-motion'
 
-/**
- * Page hero: large bold title + optional subtitle.
- * Klug Avalon style: minimal, engineering-focused, strong typography.
- */
 export default function PageHeader({ title, subtitle, label }) {
   return (
-    <section className="bg-hejaaz-dark text-hejaaz-white py-24 sm:py-30 lg:py-34 overflow-hidden relative">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
+    <section className="bg-hejaaz-primary text-hejaaz-white py-16 sm:py-20 lg:py-24 overflow-hidden relative">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-[0.04]">
         <div
           className="absolute inset-0"
           style={{
@@ -20,33 +16,23 @@ export default function PageHeader({ title, subtitle, label }) {
 
       <div className="container-content relative">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-narrow"
+          transition={{ duration: 0.4 }}
+          className="max-w-3xl"
         >
           {label && (
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-              className="inline-block text-hejaaz-accent-light text-sm font-semibold uppercase tracking-wider mb-6"
-            >
+            <span className="inline-block text-hejaaz-secondary text-sm font-semibold uppercase tracking-wider mb-4">
               {label}
-            </motion.span>
+            </span>
           )}
-          <h1 className="heading-xl text-hejaaz-white">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-hejaaz-white leading-tight">
             {title}
           </h1>
           {subtitle && (
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="mt-6 text-hejaaz-gray-muted text-lg sm:text-xl leading-relaxed max-w-xl"
-            >
+            <p className="mt-5 text-lg text-hejaaz-text-muted leading-relaxed max-w-2xl">
               {subtitle}
-            </motion.p>
+            </p>
           )}
         </motion.div>
       </div>
