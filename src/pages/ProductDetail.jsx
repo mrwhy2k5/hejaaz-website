@@ -1,9 +1,10 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FileText, CheckCircle2, ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
-import PageHeader from '../components/PageHeader'
+import SectionHeading from '../components/SectionHeading'
+import CTAButtons from '../components/CTAButtons'
 import SystemLayoutDiagram from '../components/SystemLayoutDiagram'
 import productsData from '../data/products.json'
 
@@ -15,9 +16,12 @@ export default function ProductDetail() {
     return (
       <Layout>
         <SeoHead title="Product not found" />
-        <div className="min-h-[60vh] flex flex-col items-center justify-center px-4">
+        <div className="min-h-[60vh] flex flex-col items-center justify-center px-6">
           <h1 className="heading-md">Product not found</h1>
-          <Link to="/products" className="mt-6 text-hejaaz-accent font-semibold hover:underline inline-flex items-center gap-2">
+          <Link
+            to="/products"
+            className="mt-6 text-hejaaz-accent font-semibold hover:underline inline-flex items-center gap-2"
+          >
             <ArrowLeft size={18} /> Back to Products
           </Link>
         </div>
@@ -32,167 +36,264 @@ export default function ProductDetail() {
         description={product.tagline || (product.overview && product.overview.slice(0, 160))}
         path={`/products/${product.slug || product.id}`}
       />
-      <PageHeader title={product.name} subtitle={product.tagline} />
 
-      <section className="section-padding bg-white">
+      {/* Hero Section */}
+      <section className="bg-hejaaz-dark text-hejaaz-white py-20 sm:py-24 lg:py-30">
         <div className="container-content">
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 text-hejaaz-gray-light hover:text-hejaaz-accent font-medium mb-10 transition-colors"
+            className="inline-flex items-center gap-2 text-hejaaz-gray-muted hover:text-hejaaz-white font-medium mb-8 transition-colors"
           >
             <ArrowLeft size={18} aria-hidden /> Back to Products
           </Link>
 
-          {/* Two-column: left image, right content */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="label text-hejaaz-accent-light">{product.category}</span>
+              <h1 className="mt-4 heading-xl text-hejaaz-white">{product.name}</h1>
+              {product.tagline && (
+                <p className="mt-6 text-lg text-hejaaz-gray-muted leading-relaxed">
+                  {product.tagline}
+                </p>
+              )}
+              <div className="mt-10">
+                <CTAButtons variant="dark" />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="rounded-2xl overflow-hidden bg-hejaaz-white/5"
+            >
+              <img
+                src={product.imagePlaceholder || '/images/products/placeholder.svg'}
+                alt={product.name}
+                className="w-full aspect-[4/3] object-cover"
+                onError={(e) => {
+                  e.target.onerror = null
+                  e.target.src = '/images/products/placeholder.svg'
+                }}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Overview Section */}
+      <section className="section-padding bg-hejaaz-white">
+        <div className="container-content">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-7">
               <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="aspect-[4/3] rounded-xl overflow-hidden bg-hejaaz-surface"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="space-y-12"
               >
-                <img
-                  src={product.imagePlaceholder || '/images/products/placeholder.svg'}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.onerror = null
-                    e.target.src = '/images/products/placeholder.svg'
-                  }}
-                />
+                <div>
+                  <SectionHeading
+                    title="Overview"
+                    size="md"
+                    animate={false}
+                  />
+                  <p className="mt-6 text-hejaaz-gray-light leading-relaxed text-lg">
+                    {product.overview}
+                  </p>
+                </div>
+
+                <div className="pt-8 border-t border-hejaaz-border">
+                  <SectionHeading
+                    title="Working Principle"
+                    size="md"
+                    animate={false}
+                  />
+                  <p className="mt-6 text-hejaaz-gray-light leading-relaxed">
+                    {product.workingPrinciple}
+                  </p>
+                </div>
               </motion.div>
             </div>
 
-            <div className="lg:col-span-7 space-y-10">
-              <motion.section
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.05 }}
-              >
-                <h2 className="heading-md mb-4">Product overview</h2>
-                <p className="text-hejaaz-gray-light leading-relaxed">{product.overview}</p>
-              </motion.section>
-
-              <motion.section
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
+            <div className="lg:col-span-5">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
+                className="sticky top-24"
               >
-                <h2 className="heading-md mb-4">System components</h2>
-                <ul className="list-disc list-inside space-y-2 text-hejaaz-gray-light leading-relaxed">
-                  {product.systemComponents.map((c) => (
-                    <li key={c}>{c}</li>
-                  ))}
-                </ul>
-              </motion.section>
-
-              <motion.section
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15 }}
-              >
-                <h2 className="heading-md mb-4">Working principle</h2>
-                <p className="text-hejaaz-gray-light leading-relaxed">{product.workingPrinciple}</p>
-              </motion.section>
-
-              <motion.section
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <h2 className="heading-md mb-4">Key safety features</h2>
-                <ul className="space-y-3">
-                  {product.keyFeatures.map((f) => (
-                    <li key={f} className="flex gap-3">
-                      <CheckCircle2 className="shrink-0 w-5 h-5 text-hejaaz-accent mt-0.5" aria-hidden />
-                      <span className="text-hejaaz-gray-light leading-relaxed">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.section>
+                <div className="bg-hejaaz-surface rounded-2xl border border-hejaaz-border p-8">
+                  <h3 className="heading-sm">System Components</h3>
+                  <ul className="mt-6 space-y-4">
+                    {product.systemComponents.map((c, i) => (
+                      <li key={i} className="flex gap-4">
+                        <span className="w-6 h-6 rounded-full bg-hejaaz-accent/10 flex items-center justify-center shrink-0 text-xs font-semibold text-hejaaz-accent">
+                          {i + 1}
+                        </span>
+                        <span className="text-hejaaz-gray-light">{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* System Layout Diagram for EOT and Gantry cranes */}
-          {(product.id === 'sli-eot-crane' || product.id === 'sli-gantry-crane') && (
+      {/* System Layout Diagram for EOT and Gantry cranes */}
+      {(product.id === 'sli-eot-crane' || product.id === 'sli-gantry-crane') && (
+        <section className="section-padding bg-hejaaz-surface">
+          <div className="container-content">
             <SystemLayoutDiagram productType={product.id === 'sli-gantry-crane' ? 'gantry' : 'eot'} />
-          )}
+          </div>
+        </section>
+      )}
 
-          {/* Full-width sections below */}
-          <div className="mt-16 pt-16 border-t border-hejaaz-surface space-y-16">
-            <motion.section
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="heading-md mb-6">Technical specifications</h2>
-              <div className="overflow-x-auto rounded-xl border border-hejaaz-surface">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="bg-hejaaz-surface">
-                      <th className="px-6 py-4 font-semibold text-hejaaz-dark">Parameter</th>
-                      <th className="px-6 py-4 font-semibold text-hejaaz-dark">Value</th>
+      {/* Key Features */}
+      <section className="section-padding bg-hejaaz-white border-t border-hejaaz-border">
+        <div className="container-content">
+          <SectionHeading
+            label="Features"
+            title="Key Safety Features"
+            align="center"
+          />
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {product.keyFeatures.map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="flex gap-4 p-6 rounded-2xl bg-hejaaz-surface border border-hejaaz-border"
+              >
+                <CheckCircle2 className="shrink-0 w-6 h-6 text-hejaaz-accent mt-0.5" aria-hidden />
+                <span className="text-hejaaz-gray-light leading-relaxed">{f}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Specifications */}
+      <section className="section-padding bg-hejaaz-surface">
+        <div className="container-content">
+          <SectionHeading
+            label="Specifications"
+            title="Technical Details"
+            align="center"
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 max-w-3xl mx-auto"
+          >
+            <div className="bg-hejaaz-white rounded-2xl border border-hejaaz-border overflow-hidden">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-hejaaz-border">
+                    <th className="px-6 py-4 text-left font-semibold text-hejaaz-dark bg-hejaaz-surface/50">
+                      Parameter
+                    </th>
+                    <th className="px-6 py-4 text-left font-semibold text-hejaaz-dark bg-hejaaz-surface/50">
+                      Value
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {product.specs.map((row, i) => (
+                    <tr
+                      key={row.param}
+                      className={`border-b border-hejaaz-border last:border-0 ${
+                        i % 2 === 0 ? '' : 'bg-hejaaz-surface/30'
+                      }`}
+                    >
+                      <td className="px-6 py-4 text-hejaaz-gray-light">{row.param}</td>
+                      <td className="px-6 py-4 text-hejaaz-dark font-medium">{row.value}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {product.specs.map((row, i) => (
-                      <tr key={row.param} className={i % 2 ? 'bg-hejaaz-surface/50' : 'bg-white'}>
-                        <td className="px-6 py-4 text-hejaaz-gray-light">{row.param}</td>
-                        <td className="px-6 py-4 text-hejaaz-dark font-medium">{row.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </motion.section>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-            <motion.section
-              initial={{ opacity: 0, y: 12 }}
+      {/* Applications & Compliance */}
+      <section className="section-padding bg-hejaaz-white">
+        <div className="container-content">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="heading-md mb-6">Applications</h2>
-              <div className="flex flex-wrap gap-3">
+              <SectionHeading
+                label="Applications"
+                title="Where It's Used"
+                size="md"
+                animate={false}
+              />
+              <div className="mt-8 flex flex-wrap gap-3">
                 {product.applications.map((a) => (
                   <span
                     key={a}
-                    className="px-4 py-2 rounded-lg bg-hejaaz-surface text-hejaaz-gray-light text-sm"
+                    className="px-4 py-2.5 rounded-xl bg-hejaaz-surface border border-hejaaz-border text-hejaaz-gray-light text-sm font-medium"
                   >
                     {a}
                   </span>
                 ))}
               </div>
-            </motion.section>
+            </motion.div>
 
-            <motion.section
-              initial={{ opacity: 0, y: 12 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
             >
-              <h2 className="heading-md mb-6">Compliance & standards</h2>
-              <ul className="flex flex-wrap gap-3">
+              <SectionHeading
+                label="Compliance"
+                title="Standards & Certifications"
+                size="md"
+                animate={false}
+              />
+              <div className="mt-8 flex flex-wrap gap-3">
                 {product.compliance.map((c) => (
-                  <li
+                  <span
                     key={c}
-                    className="px-4 py-2 rounded-lg bg-hejaaz-accent/10 text-hejaaz-accent font-medium text-sm"
+                    className="px-4 py-2.5 rounded-xl bg-hejaaz-accent/10 text-hejaaz-accent text-sm font-semibold"
                   >
                     {c}
-                  </li>
+                  </span>
                 ))}
-              </ul>
-            </motion.section>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-            <motion.section
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="pt-8"
-            >
-              <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-                <FileText size={18} aria-hidden />
-                Get Technical Quote
-              </Link>
-            </motion.section>
+      {/* CTA Section */}
+      <section className="section-padding bg-hejaaz-dark text-hejaaz-white">
+        <div className="container-content">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+            <div className="max-w-lg">
+              <h2 className="heading-md text-hejaaz-white">
+                Ready to get started with {product.name}?
+              </h2>
+              <p className="mt-4 text-hejaaz-gray-muted leading-relaxed">
+                Contact us for a detailed technical quote with specifications tailored to your requirements.
+              </p>
+            </div>
+            <CTAButtons variant="dark" />
           </div>
         </div>
       </section>

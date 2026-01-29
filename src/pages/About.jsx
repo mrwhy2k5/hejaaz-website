@@ -7,10 +7,33 @@ import SectionHeading from '../components/SectionHeading'
 import CTAButtons from '../components/CTAButtons'
 
 const values = [
-  { icon: Shield, title: 'Safety-first philosophy', desc: 'We design and deliver systems that protect people and assets. Crane safety and automation are at the core of everything we do.' },
-  { icon: Target, title: 'Engineering-focused', desc: "Our solutions are built on solid engineering — from load cells and sensors to PLCs and HMIs. We don't compromise on quality." },
-  { icon: Wrench, title: 'After-sales strength', desc: 'Installation, calibration, and AMC across PAN-India. We stand behind our products with reliable support.' },
-  { icon: MapPin, title: 'PAN-India support', desc: "Wherever you are — factory, site, or port — we're equipped to serve you with installation and maintenance." },
+  {
+    icon: Shield,
+    title: 'Safety-First Philosophy',
+    desc: 'We design and deliver systems that protect people and assets. Crane safety and automation are at the core of everything we do.',
+  },
+  {
+    icon: Target,
+    title: 'Engineering-Focused',
+    desc: 'Our solutions are built on solid engineering — from load cells and sensors to PLCs and HMIs. We never compromise on quality.',
+  },
+  {
+    icon: Wrench,
+    title: 'After-Sales Strength',
+    desc: 'Installation, calibration, and AMC across PAN-India. We stand behind our products with reliable, responsive support.',
+  },
+  {
+    icon: MapPin,
+    title: 'PAN-India Presence',
+    desc: 'Wherever you are — factory, site, or port — we are equipped to serve you with installation and maintenance across all 28 states.',
+  },
+]
+
+const timeline = [
+  { year: 'Founded', title: 'Started Operations', desc: 'Began as a crane safety systems provider in Chennai' },
+  { year: 'Expanded', title: 'Industrial Automation', desc: 'Added factory and process automation services' },
+  { year: 'Certified', title: 'ISO 9001:2015', desc: 'Achieved quality management certification' },
+  { year: 'Today', title: 'PAN-India Network', desc: 'Serving OEMs, EPCs, and factories across India' },
 ]
 
 const highlights = [
@@ -25,117 +48,168 @@ const highlights = [
 export default function About() {
   return (
     <Layout>
-      <SeoHead title="About Us" description="Hejaaz Technologies – Vision, mission, safety-first philosophy. PAN-India support and after-sales." path="/about" />
-      <PageHeader
+      <SeoHead
         title="About Us"
-        subtitle="Engineering safety. Powering industry. We deliver crane safety systems and industrial automation across India."
+        description="Hejaaz Technologies – Vision, mission, safety-first philosophy. PAN-India support and after-sales."
+        path="/about"
+      />
+      <PageHeader
+        label="About Us"
+        title="Engineering Safety. Powering Industry."
+        subtitle="Two decades of crane safety systems and industrial automation across India."
       />
 
-      {/* Who we are */}
-      <section className="section-padding bg-white">
-        <div className="container-content max-w-narrow mx-auto">
-          <SectionHeading title="Our Story" subtitle="Hejaaz Technologies is an industrial automation and crane safety company serving OEMs, EPCs, factories, and safety auditors." animate={false} />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-10 space-y-6 text-hejaaz-gray-light leading-relaxed"
-          >
-            <p>
-              We specialize in Safe Load Indicators (SLIs) for tower, EOT, gantry, crawler, telescopic, pick & carry cranes, forklifts, and tipper trucks — as well as factory automation, process automation, PC-based automation, industrial vision systems, and safety system integration.
-            </p>
-            <p>
-              Our engineering-led, safety-first approach ensures that every solution we deliver meets industry standards and your operational needs. With PAN-India installation, calibration, and AMC support, we're committed to keeping your operations safe and efficient.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Vision & Mission blocks */}
-      <section className="section-padding bg-hejaaz-surface">
+      {/* Story Section */}
+      <section className="section-padding bg-hejaaz-white">
         <div className="container-content">
-          <SectionHeading title="Vision & Mission" />
-          <div className="mt-16 grid sm:grid-cols-2 gap-8 lg:gap-10">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex gap-6 p-8 bg-white rounded-xl border border-hejaaz-surface shadow-card"
-            >
-              <div className="w-12 h-12 rounded-xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0">
-                <Eye className="w-6 h-6 text-hejaaz-accent" aria-hidden />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-hejaaz-dark">Vision</h3>
-                <p className="mt-3 text-hejaaz-gray-light leading-relaxed">
-                  To be a trusted partner in industrial safety and automation, enabling our customers to operate reliably and comply with the highest standards.
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div>
+              <SectionHeading
+                label="Our Story"
+                title="Built on Engineering Excellence"
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mt-8 space-y-6 text-hejaaz-gray-light leading-relaxed"
+              >
+                <p className="text-lg">
+                  Hejaaz Technologies is an industrial automation and crane safety company serving OEMs, EPCs, factories, and safety auditors across India.
                 </p>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex gap-6 p-8 bg-white rounded-xl border border-hejaaz-surface shadow-card"
-            >
-              <div className="w-12 h-12 rounded-xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0">
-                <Target className="w-6 h-6 text-hejaaz-accent" aria-hidden />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-hejaaz-dark">Mission</h3>
-                <p className="mt-3 text-hejaaz-gray-light leading-relaxed">
-                  To design, supply, and support best-in-class crane safety and automation solutions with strong after-sales service across India.
+                <p>
+                  We specialize in Safe Load Indicators (SLIs) for tower, EOT, gantry, crawler, telescopic, pick & carry cranes, forklifts, and tipper trucks — as well as factory automation, process automation, PC-based automation, industrial vision systems, and safety system integration.
                 </p>
-              </div>
+                <p>
+                  Our engineering-led, safety-first approach ensures that every solution we deliver meets industry standards and your operational needs.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Timeline */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              {timeline.map((item, i) => (
+                <div
+                  key={item.year}
+                  className="flex gap-6 p-6 rounded-2xl bg-hejaaz-surface border border-hejaaz-border"
+                >
+                  <span className="w-16 h-16 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0 text-sm font-bold text-hejaaz-accent">
+                    {item.year}
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-hejaaz-dark">{item.title}</h3>
+                    <p className="mt-1 text-sm text-hejaaz-gray-light">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* What we stand for */}
-      <section className="section-padding bg-white">
+      {/* Vision & Mission */}
+      <section className="section-padding bg-hejaaz-surface">
         <div className="container-content">
-          <SectionHeading title="What We Stand For" />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <SectionHeading
+            label="Our Purpose"
+            title="Vision & Mission"
+            align="center"
+          />
+          <div className="mt-16 grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="card p-8 lg:p-10"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center">
+                <Eye className="w-7 h-7 text-hejaaz-accent" aria-hidden />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">Vision</h3>
+              <p className="mt-4 text-hejaaz-gray-light leading-relaxed">
+                To be a trusted partner in industrial safety and automation, enabling our customers to operate reliably and comply with the highest standards.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="card p-8 lg:p-10"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center">
+                <Target className="w-7 h-7 text-hejaaz-accent" aria-hidden />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">Mission</h3>
+              <p className="mt-4 text-hejaaz-gray-light leading-relaxed">
+                To design, supply, and support best-in-class crane safety and automation solutions with strong after-sales service across India.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Stand For */}
+      <section className="section-padding bg-hejaaz-white">
+        <div className="container-content">
+          <SectionHeading
+            label="Our Values"
+            title="What We Stand For"
+            align="center"
+          />
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
               <motion.div
                 key={v.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-                className="p-6 rounded-xl border border-hejaaz-surface bg-hejaaz-surface/50 hover:shadow-card transition-shadow duration-300"
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="p-6 rounded-2xl bg-hejaaz-surface border border-hejaaz-border"
               >
                 <v.icon className="w-10 h-10 text-hejaaz-accent" aria-hidden />
                 <h3 className="mt-5 font-bold text-hejaaz-dark">{v.title}</h3>
-                <p className="mt-2 text-sm text-hejaaz-gray-light leading-relaxed">{v.desc}</p>
+                <p className="mt-3 text-sm text-hejaaz-gray-light leading-relaxed">
+                  {v.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why partner with us */}
-      <section className="section-padding bg-hejaaz-dark text-white">
-        <div className="container-content max-w-narrow mx-auto">
-          <SectionHeading title="Why Partner With Us" subtitle="Quality, compliance, and support you can rely on." />
-          <ul className="mt-12 space-y-5">
-            {highlights.map((item, i) => (
-              <motion.li
-                key={item}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="flex gap-4"
-              >
-                <CheckCircle2 className="shrink-0 w-6 h-6 text-hejaaz-accent mt-0.5" aria-hidden />
-                <span className="text-white/90 leading-relaxed">{item}</span>
-              </motion.li>
-            ))}
-          </ul>
-          <div className="mt-14">
-            <CTAButtons variant="dark" />
+      {/* Why Partner With Us */}
+      <section className="section-padding bg-hejaaz-dark text-hejaaz-white">
+        <div className="container-content">
+          <div className="max-w-narrow">
+            <SectionHeading
+              label="Why Us"
+              title="Why Partner With Hejaaz"
+              subtitle="Quality, compliance, and support you can rely on."
+              animate={false}
+            />
+            <motion.ul
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 grid sm:grid-cols-2 gap-4"
+            >
+              {highlights.map((item, i) => (
+                <li key={item} className="flex gap-4 p-4 rounded-xl bg-hejaaz-white/5">
+                  <CheckCircle2 className="shrink-0 w-5 h-5 text-hejaaz-accent-light mt-0.5" aria-hidden />
+                  <span className="text-hejaaz-gray-muted text-sm leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </motion.ul>
+            <div className="mt-12">
+              <CTAButtons variant="dark" />
+            </div>
           </div>
         </div>
       </section>

@@ -3,11 +3,14 @@ import { motion } from 'framer-motion'
 import {
   Shield,
   Cog,
-  Factory,
-  MapPin,
+  Wrench,
   ArrowRight,
   CheckCircle2,
   Award,
+  Factory,
+  Ship,
+  Zap,
+  Building2,
 } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
@@ -15,31 +18,44 @@ import SectionHeading from '../components/SectionHeading'
 import CTAButtons from '../components/CTAButtons'
 import ProductCard from '../components/ProductCard'
 import productsData from '../data/products.json'
-import industriesData from '../data/industries.json'
 
 const stats = [
-  { label: 'Years of Experience', value: '20+' },
-  { label: 'OEM Served', value: '50+' },
-  { label: 'Systems Operational', value: '500+' },
-  { label: 'PAN-India Support', value: 'Yes' },
+  { label: 'Years Experience', value: '20+' },
+  { label: 'OEMs Served', value: '50+' },
+  { label: 'Systems Deployed', value: '500+' },
+  { label: 'States Covered', value: '28' },
 ]
 
 const coreSolutions = [
-  { icon: Shield, title: 'Crane Safety Systems', desc: 'Safe Load Indicators & overload protection for all crane types.' },
-  { icon: Cog, title: 'Industrial Automation', desc: 'PLC-based factory & process automation, vision systems, and integration.' },
-  { icon: Factory, title: 'PAN-India Support', desc: 'Installation, calibration, and AMC across India.' },
+  {
+    icon: Shield,
+    title: 'Crane Safety Systems',
+    desc: 'Safe Load Indicators and overload protection for EOT, tower, gantry, and mobile cranes.',
+  },
+  {
+    icon: Cog,
+    title: 'Industrial Automation',
+    desc: 'PLC-based factory and process automation, vision systems, and system integration.',
+  },
+  {
+    icon: Wrench,
+    title: 'PAN-India Service',
+    desc: 'Installation, calibration, and Annual Maintenance Contracts across all Indian states.',
+  },
+]
+
+const industries = [
+  { icon: Factory, name: 'Manufacturing' },
+  { icon: Building2, name: 'Construction' },
+  { icon: Ship, name: 'Ports & Logistics' },
+  { icon: Zap, name: 'Power & Energy' },
 ]
 
 const whyChoose = [
-  'ISO 9001:2015 certified quality management',
-  'MSME registered — trusted by OEMs & EPCs',
-  'Engineering-led, safety-first approach',
-  'Strong after-sales and AMC support',
-]
-
-const certs = [
-  { name: 'ISO 9001:2015', desc: 'Quality management systems' },
-  { name: 'MSME', desc: 'Micro, Small & Medium Enterprises' },
+  { title: 'ISO 9001:2015 Certified', desc: 'Quality management systems' },
+  { title: 'MSME Registered', desc: 'Trusted by OEMs and EPCs' },
+  { title: 'Engineering-First', desc: 'Safety-focused approach' },
+  { title: 'Strong After-Sales', desc: 'Dedicated AMC support' },
 ]
 
 export default function Home() {
@@ -51,65 +67,109 @@ export default function Home() {
         path="/"
       />
 
-      {/* Hero */}
-      <section className="relative bg-hejaaz-dark text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-hejaaz-dark via-hejaaz-dark to-hejaaz-gray/30" />
-        <div className="relative container-content py-24 sm:py-30 lg:py-36">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl"
-          >
-            <h1 className="heading-xl text-white leading-tight">
-              Engineering Safety.<br />Powering Industry.
-            </h1>
-            <p className="mt-8 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-              Crane safety systems, Safe Load Indicators, and industrial automation for OEMs, EPCs, factories, and safety auditors. PAN-India service and support.
-            </p>
-            <div className="mt-12">
-              <CTAButtons variant="dark" />
-            </div>
-          </motion.div>
+      {/* Hero Section */}
+      <section className="relative bg-hejaaz-dark text-hejaaz-white overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+              backgroundSize: '48px 48px',
+            }}
+          />
+        </div>
+
+        <div className="container-content relative py-30 sm:py-34 lg:py-[10rem]">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            >
+              <span className="inline-block text-hejaaz-accent-light text-sm font-semibold uppercase tracking-wider mb-6">
+                Industrial Safety & Automation
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-display font-bold tracking-tight text-hejaaz-white leading-none">
+                Engineering Safety.
+                <br />
+                Powering Industry.
+              </h1>
+              <p className="mt-8 text-lg sm:text-xl text-hejaaz-gray-muted leading-relaxed max-w-xl">
+                Crane safety systems and industrial automation for OEMs, EPCs, and factories. Trusted across India for over two decades.
+              </p>
+              <div className="mt-10">
+                <CTAButtons variant="dark" />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Stats strip */}
-      <section className="bg-hejaaz-surface border-y border-hejaaz-surface">
-        <div className="container-content py-12 sm:py-14">
+      {/* Stats Strip */}
+      <section className="bg-hejaaz-white border-b border-hejaaz-border">
+        <div className="container-content py-12 sm:py-16">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((s, i) => (
               <motion.div
                 key={s.label}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
                 className="text-center"
               >
-                <p className="text-2xl sm:text-3xl font-bold text-hejaaz-dark">{s.value}</p>
-                <p className="mt-1 text-sm text-hejaaz-gray-light uppercase tracking-wider">{s.label}</p>
+                <p className="text-3xl sm:text-4xl font-bold text-hejaaz-dark tracking-tight">
+                  {s.value}
+                </p>
+                <p className="mt-2 text-sm text-hejaaz-gray-light font-medium">
+                  {s.label}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Hejaaz */}
-      <section className="section-padding bg-white">
+      {/* About Section */}
+      <section className="section-padding bg-hejaaz-white">
         <div className="container-content">
-          <SectionHeading
-            title="About Hejaaz Technologies"
-            subtitle="We design, supply, and support crane safety and automation solutions across India. From Safe Load Indicators for every crane type to factory and process automation, we help you operate safely and efficiently."
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-12"
-          >
-            <CTAButtons />
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div>
+              <SectionHeading
+                label="About Us"
+                title="Two Decades of Industrial Excellence"
+                subtitle="We design, supply, and support crane safety and automation solutions. From Safe Load Indicators for every crane type to factory automation, we help you operate safely and efficiently."
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mt-10"
+              >
+                <CTAButtons />
+              </motion.div>
+            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 gap-4"
+            >
+              {industries.map((ind, i) => (
+                <div
+                  key={ind.name}
+                  className={`p-6 rounded-2xl bg-hejaaz-surface border border-hejaaz-border ${
+                    i === 0 ? 'col-span-2' : ''
+                  }`}
+                >
+                  <ind.icon className="w-8 h-8 text-hejaaz-accent" aria-hidden />
+                  <p className="mt-4 font-semibold text-hejaaz-dark">{ind.name}</p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -117,150 +177,141 @@ export default function Home() {
       <section className="section-padding bg-hejaaz-surface">
         <div className="container-content">
           <SectionHeading
+            label="What We Do"
             title="Our Core Solutions"
             subtitle="Safety systems, automation, and nationwide support — all under one roof."
+            align="center"
           />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {coreSolutions.map((item, i) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="rounded-xl bg-white border border-hejaaz-surface p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300"
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="card p-8 lg:p-10"
               >
-                <div className="w-12 h-12 rounded-lg bg-hejaaz-accent/10 flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-hejaaz-accent" aria-hidden />
+                <div className="w-14 h-14 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center">
+                  <item.icon className="w-7 h-7 text-hejaaz-accent" aria-hidden />
                 </div>
-                <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">{item.title}</h3>
-                <p className="mt-3 text-hejaaz-gray-light leading-relaxed">{item.desc}</p>
+                <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-hejaaz-gray-light leading-relaxed">
+                  {item.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Safety Systems for Cranes */}
-      <section className="section-padding bg-white">
+      {/* Products Section */}
+      <section className="section-padding bg-hejaaz-white">
         <div className="container-content">
-          <SectionHeading
-            title="Safety Systems for Cranes"
-            subtitle="Safe Load Indicators (SLI) for tower, EOT, gantry, crawler, telescopic, pick & carry, forklift, and tipper trucks."
-          />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {productsData.slice(0, 8).map((p, i) => (
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-16">
+            <SectionHeading
+              label="Products"
+              title="Safe Load Indicators"
+              subtitle="For tower, EOT, gantry, crawler, telescopic, pick & carry cranes, forklifts, and tipper trucks."
+              animate={false}
+            />
+            <Link
+              to="/products"
+              className="btn-ghost shrink-0"
+            >
+              View all products
+              <ArrowRight size={16} aria-hidden />
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {productsData.slice(0, 4).map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />
             ))}
-          </div>
-          <div className="mt-14 text-center">
-            <Link to="/products" className="btn-primary inline-flex items-center gap-2">
-              View all products <ArrowRight size={18} aria-hidden />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries Served */}
-      <section className="section-padding bg-hejaaz-surface">
-        <div className="container-content">
-          <SectionHeading
-            title="Industries Served"
-            subtitle="Crane OEMs, EPCs, factories, ports, mining, power, and safety auditors."
-          />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {industriesData.slice(0, 8).map((ind, i) => (
-              <motion.div
-                key={ind.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="rounded-xl bg-white border border-hejaaz-surface p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300"
-              >
-                <h3 className="font-bold text-hejaaz-dark">{ind.name}</h3>
-                <p className="mt-2 text-sm text-hejaaz-gray-light line-clamp-2 leading-relaxed">{ind.description}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link to="/industries" className="btn-secondary inline-flex items-center gap-2">
-              Explore industries <ArrowRight size={18} aria-hidden />
-            </Link>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-white">
-        <div className="container-content">
-          <SectionHeading
-            title="Why Choose Us"
-            subtitle="Quality, compliance, and after-sales you can rely on."
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-16 grid sm:grid-cols-2 gap-6 max-w-3xl"
-          >
-            {whyChoose.map((item, i) => (
-              <div key={item} className="flex gap-4">
-                <CheckCircle2 className="shrink-0 w-6 h-6 text-hejaaz-accent mt-0.5" aria-hidden />
-                <span className="text-hejaaz-gray-light leading-relaxed">{item}</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Certifications strip */}
       <section className="section-padding bg-hejaaz-surface">
         <div className="container-content">
           <SectionHeading
-            title="Certifications"
-            subtitle="ISO 9001:2015 and MSME registered. Industry compliance at the core."
+            label="Why Us"
+            title="Why Partner With Hejaaz"
+            subtitle="Quality, compliance, and after-sales you can rely on."
+            align="center"
           />
-          <div className="mt-16 flex flex-wrap gap-8">
-            {certs.map((c) => (
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyChoose.map((item, i) => (
               <motion.div
-                key={c.name}
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-5 px-8 py-5 bg-white rounded-xl border border-hejaaz-surface shadow-card"
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="flex gap-4 p-6 rounded-2xl bg-hejaaz-white border border-hejaaz-border"
               >
-                <Award className="w-10 h-10 text-hejaaz-accent shrink-0" aria-hidden />
+                <CheckCircle2 className="shrink-0 w-6 h-6 text-hejaaz-accent mt-0.5" aria-hidden />
                 <div>
-                  <h3 className="font-bold text-hejaaz-dark">{c.name}</h3>
-                  <p className="text-sm text-hejaaz-gray-light mt-0.5">{c.desc}</p>
+                  <h3 className="font-bold text-hejaaz-dark">{item.title}</h3>
+                  <p className="mt-1 text-sm text-hejaaz-gray-light">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
           </div>
-          <div className="mt-10">
-            <Link to="/certifications" className="text-hejaaz-accent font-semibold hover:underline inline-flex items-center gap-2">
-              Certifications & compliance <ArrowRight size={16} aria-hidden />
+        </div>
+      </section>
+
+      {/* Certifications Strip */}
+      <section className="section-padding-sm bg-hejaaz-white border-y border-hejaaz-border">
+        <div className="container-content">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+            <div className="flex items-center gap-6">
+              <div className="w-16 h-16 rounded-2xl bg-hejaaz-accent/10 flex items-center justify-center shrink-0">
+                <Award className="w-8 h-8 text-hejaaz-accent" aria-hidden />
+              </div>
+              <div>
+                <h2 className="heading-sm">Certifications</h2>
+                <p className="mt-1 text-hejaaz-gray-light">
+                  ISO 9001:2015 and MSME registered
+                </p>
+              </div>
+            </div>
+            <Link
+              to="/certifications"
+              className="btn-outline shrink-0"
+            >
+              View certifications
+              <ArrowRight size={16} aria-hidden />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA banner */}
-      <section className="section-padding bg-hejaaz-dark text-white">
+      {/* CTA Banner */}
+      <section className="section-padding bg-hejaaz-dark text-hejaaz-white">
         <div className="container-content">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-            <div className="max-w-xl">
-              <h2 className="heading-md text-white">PAN-India Service Support</h2>
-              <p className="mt-4 text-white/70 leading-relaxed">
-                Installation, calibration, and Annual Maintenance Contracts (AMC) across India. We're where you need us.
+          <div className="max-w-narrow">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <span className="inline-block text-hejaaz-accent-light text-sm font-semibold uppercase tracking-wider mb-6">
+                Get Started
+              </span>
+              <h2 className="heading-lg text-hejaaz-white">
+                Ready to enhance your operational safety?
+              </h2>
+              <p className="mt-6 text-hejaaz-gray-muted text-lg leading-relaxed max-w-lg">
+                Contact us for a technical consultation. We serve clients across all 28 Indian states with installation, calibration, and AMC support.
               </p>
-              <div className="mt-6 flex items-center gap-3 text-hejaaz-accent-light">
-                <MapPin className="w-5 h-5 shrink-0" aria-hidden />
-                <span className="text-sm">192-2A, Haji Mohammed Abdul Hafiz Sahib Street, Dashamakan, Chennai – 600012</span>
+              <div className="mt-10">
+                <CTAButtons variant="dark" />
               </div>
-            </div>
-            <CTAButtons variant="dark" className="shrink-0" />
+            </motion.div>
           </div>
         </div>
       </section>
