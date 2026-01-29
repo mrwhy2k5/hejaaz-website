@@ -7,13 +7,15 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans text-hejaaz-gray bg-hejaaz-white antialiased;
+    @apply font-sans antialiased;
+    color: #334155;
+    background-color: #ffffff;
     letter-spacing: -0.01em;
   }
   
   /* Better typography defaults */
   h1, h2, h3, h4, h5, h6 {
-    @apply text-hejaaz-dark;
+    color: #0f172a;
     text-wrap: balance;
   }
   
@@ -25,12 +27,12 @@
 @layer components {
   /* Container - wider for premium feel */
   .container-content {
-    @apply max-w-content mx-auto px-6 sm:px-8 lg:px-12;
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
   }
   
   /* Section padding - generous whitespace like Klug Avalon */
   .section-padding {
-    @apply py-24 sm:py-30 lg:py-34;
+    @apply py-24 sm:py-28 lg:py-32;
   }
   .section-padding-sm {
     @apply py-16 sm:py-20 lg:py-24;
@@ -38,7 +40,7 @@
   
   /* Section divider - subtle separator */
   .section-divider {
-    @apply border-t border-hejaaz-border;
+    border-top: 1px solid #e2e8f0;
   }
   
   /* Primary CTA button - solid, rounded */
@@ -46,11 +48,18 @@
     @apply inline-flex items-center justify-center gap-2.5 
            px-7 py-3.5 rounded-full
            text-sm font-semibold tracking-tight
-           bg-hejaaz-accent text-hejaaz-white 
-           hover:bg-hejaaz-accent-dark
-           shadow-sm hover:shadow-md
+           shadow-sm
            transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-hejaaz-accent focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: #0d9488;
+    color: #ffffff;
+  }
+  .btn-primary:hover {
+    background-color: #0f766e;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+  .btn-primary:focus {
+    --tw-ring-color: #0d9488;
   }
   
   /* Secondary button - outline style */
@@ -58,10 +67,18 @@
     @apply inline-flex items-center justify-center gap-2.5 
            px-7 py-3.5 rounded-full
            text-sm font-semibold tracking-tight
-           border-2 border-hejaaz-dark text-hejaaz-dark
-           hover:bg-hejaaz-dark hover:text-hejaaz-white
+           border-2
            transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-hejaaz-dark focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    border-color: #0f172a;
+    color: #0f172a;
+  }
+  .btn-secondary:hover {
+    background-color: #0f172a;
+    color: #ffffff;
+  }
+  .btn-secondary:focus {
+    --tw-ring-color: #0f172a;
   }
   
   /* Outline button - accent color */
@@ -69,10 +86,18 @@
     @apply inline-flex items-center justify-center gap-2.5 
            px-7 py-3.5 rounded-full
            text-sm font-semibold tracking-tight
-           border-2 border-hejaaz-accent text-hejaaz-accent
-           hover:bg-hejaaz-accent hover:text-hejaaz-white
+           border-2
            transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-hejaaz-accent focus:ring-offset-2;
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    border-color: #0d9488;
+    color: #0d9488;
+  }
+  .btn-outline:hover {
+    background-color: #0d9488;
+    color: #ffffff;
+  }
+  .btn-outline:focus {
+    --tw-ring-color: #0d9488;
   }
   
   /* Light outline button - for dark backgrounds */
@@ -80,10 +105,18 @@
     @apply inline-flex items-center justify-center gap-2.5 
            px-7 py-3.5 rounded-full
            text-sm font-semibold tracking-tight
-           border-2 border-hejaaz-white/30 text-hejaaz-white
-           hover:bg-hejaaz-white hover:text-hejaaz-dark
+           border-2
            transition-all duration-300
-           focus:outline-none focus:ring-2 focus:ring-hejaaz-white/50 focus:ring-offset-2 focus:ring-offset-hejaaz-dark;
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+  }
+  .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #0f172a;
+  }
+  .btn-outline-light:focus {
+    --tw-ring-color: rgba(255, 255, 255, 0.5);
   }
   
   /* Ghost button - minimal style */
@@ -91,50 +124,68 @@
     @apply inline-flex items-center justify-center gap-2 
            px-5 py-2.5 rounded-lg
            text-sm font-medium
-           text-hejaaz-gray-light
-           hover:text-hejaaz-dark hover:bg-hejaaz-surface
            transition-all duration-200;
+    color: #64748b;
+  }
+  .btn-ghost:hover {
+    color: #0f172a;
+    background-color: #f8fafc;
   }
   
   /* Typography - Large bold headings */
   .heading-xl {
-    @apply text-4xl sm:text-5xl lg:text-display font-bold tracking-tight text-hejaaz-dark leading-none;
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-none;
+    color: #0f172a;
   }
   .heading-lg {
-    @apply text-3xl sm:text-4xl lg:text-display-sm font-bold tracking-tight text-hejaaz-dark leading-tight;
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight;
+    color: #0f172a;
   }
   .heading-md {
-    @apply text-2xl sm:text-display-xs font-bold tracking-tight text-hejaaz-dark leading-tight;
+    @apply text-2xl sm:text-3xl font-bold tracking-tight leading-tight;
+    color: #0f172a;
   }
   .heading-sm {
-    @apply text-xl sm:text-2xl font-bold tracking-tight text-hejaaz-dark leading-snug;
+    @apply text-xl sm:text-2xl font-bold tracking-tight leading-snug;
+    color: #0f172a;
   }
   
   /* Body text */
   .body-lg {
-    @apply text-lg sm:text-xl text-hejaaz-gray-light leading-relaxed;
+    @apply text-lg sm:text-xl leading-relaxed;
+    color: #64748b;
   }
   .body-md {
-    @apply text-base text-hejaaz-gray-light leading-relaxed;
+    @apply text-base leading-relaxed;
+    color: #64748b;
   }
   
   /* Card styles - soft shadows, clean */
   .card {
-    @apply bg-hejaaz-white rounded-2xl border border-hejaaz-border 
-           shadow-card hover:shadow-card-hover 
+    @apply rounded-2xl border overflow-hidden
            transition-all duration-300;
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  }
+  .card:hover {
+    box-shadow: 0 10px 40px -10px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.05);
   }
   .card-elevated {
-    @apply bg-hejaaz-white rounded-2xl shadow-elevated;
+    @apply rounded-2xl;
+    background-color: #ffffff;
+    box-shadow: 0 20px 60px -15px rgb(0 0 0 / 0.15);
   }
   
   /* Label/tag styles */
   .label {
-    @apply text-xs font-semibold uppercase tracking-wider text-hejaaz-accent;
+    @apply text-xs font-semibold uppercase tracking-wider;
+    color: #0d9488;
   }
 }
 
 /* Custom selection color */
 ::selection {
-  @apply bg-hejaaz-accent/20 text-hejaaz-dark;
+  background-color: rgba(13, 148, 136, 0.2);
+  color: #0f172a;
 }

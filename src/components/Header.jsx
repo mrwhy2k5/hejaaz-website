@@ -39,7 +39,7 @@ export default function Header() {
       }`}
     >
       <div className="container-content">
-        <div className="flex items-center justify-between h-18 lg:h-20">
+        <div className="flex items-center justify-between h-[4.5rem] lg:h-20">
           {/* Logo */}
           <Link
             to="/"
