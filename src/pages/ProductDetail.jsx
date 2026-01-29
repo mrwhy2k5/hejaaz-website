@@ -4,6 +4,7 @@ import { FileText, CheckCircle2, ArrowLeft } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
 import PageHeader from '../components/PageHeader'
+import SystemLayoutDiagram from '../components/SystemLayoutDiagram'
 import productsData from '../data/products.json'
 
 export default function ProductDetail() {
@@ -111,6 +112,11 @@ export default function ProductDetail() {
               </motion.section>
             </div>
           </div>
+
+          {/* System Layout Diagram for EOT and Gantry cranes */}
+          {(product.id === 'sli-eot-crane' || product.id === 'sli-gantry-crane') && (
+            <SystemLayoutDiagram productType={product.id === 'sli-gantry-crane' ? 'gantry' : 'eot'} />
+          )}
 
           {/* Full-width sections below */}
           <div className="mt-16 pt-16 border-t border-hejaaz-surface space-y-16">
