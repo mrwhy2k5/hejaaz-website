@@ -1,0 +1,157 @@
+{
+  "safe-load-indicator-eot-crane": {
+    "id": "sli-eot-crane",
+    "slug": "safe-load-indicator-eot-crane",
+    "name": "Safe Load Indicator for EOT Cranes",
+    "tagline": "Real-time load monitoring and safety automation for incident-free operation",
+    "heroImage": "/images/products/eot-sli-system-layout.svg",
+    "overview": "The Hejaaz Safe Load Indicator (SLI) for EOT cranes delivers continuous, real-time load monitoring and safety automation for Electric Overhead Travelling cranes. It protects operators, loads, and equipment through overload prevention, anti-tilt control, and rope-slack detection—keeping your shop-floor and warehouse lifts safe and compliant.",
+    "systemLayout": {
+      "title": "System layout – EOT crane",
+      "image": "/images/products/eot-sli-system-layout.svg",
+      "description": "The EOT SLI system integrates with your crane’s main and auxiliary hooks, measuring load at the hook or via rope clamp / tensiometer. A central 4-inch display shows live weight and capacity, while ATP (anti-tilt) and Modbus modules support automation and interlocks. Anti-tilt limits are configurable (e.g. +5° / -5°) to suit your layout.",
+      "items": [
+        "Main hook and auxiliary hook load measurement",
+        "Load pin or rope clamp / tensiometer",
+        "4-inch display unit (sunlight-readable)",
+        "ATP (anti-tilt) and Modbus module",
+        "Anti-tilt range: +5° / -5° (configurable)"
+      ]
+    },
+    "keyFeatures": [
+      "Wireless calibration via mobile or web—no ladder or cab access required",
+      "Multi-load calibration (up to 8 points) for high accuracy across the range",
+      "Single unified display for main and auxiliary hook data",
+      "Real-time multi-hook load and percentage capacity",
+      "Toggle ON/OFF for configurable parameters",
+      "Error indication (ERR 1, ERR 2) for quick diagnostics"
+    ],
+    "safetyParameters": [
+      {
+        "icon": "overload",
+        "title": "Overload protection",
+        "description": "OVLD alarm with buzzer and hoist cutoff when safe capacity is exceeded."
+      },
+      {
+        "icon": "anti-tilt",
+        "title": "Anti-tilt (ATP)",
+        "description": "Monitors crane inclination and triggers alarm/cutoff if limits are exceeded."
+      },
+      {
+        "icon": "rope-slack",
+        "title": "Rope slack detection",
+        "description": "Detects slack rope conditions and alerts the operator to prevent damage or fouling."
+      },
+      {
+        "icon": "anemometer",
+        "title": "Anemometer (wind speed)",
+        "description": "Optional wind-speed cutoff for indoor-outdoor installations."
+      },
+      {
+        "icon": "error",
+        "title": "Error indication",
+        "description": "ERR 1, ERR 2 and related codes for fault diagnosis and maintenance."
+      }
+    ],
+    "smartCalibration": {
+      "title": "Smart calibration & control",
+      "description": "Calibrate and configure the EOT SLI from a browser—no dedicated software or dongles. Use a smartphone, tablet, or laptop on your site Wi-Fi to set capacity, alarm levels, and anti-tilt limits remotely.",
+      "points": [
+        "Web-based calibration—no software installation",
+        "Works on mobile, tablet, or laptop",
+        "Remote value setting and parameter updates",
+        "Angle reset and multi-point calibration support"
+      ]
+    },
+    "specs": [
+      { "param": "Load range", "value": "1–100 T (configurable)" },
+      { "param": "Accuracy", "value": "±1% F.S." },
+      { "param": "Display", "value": "4-inch LCD, sunlight readable" },
+      { "param": "Power", "value": "230 V AC / 24 V DC" },
+      { "param": "Enclosure", "value": "IP54" },
+      { "param": "Communication", "value": "Modbus, ATP module" }
+    ],
+    "applications": ["Workshops", "Warehouses", "Steel plants", "Foundries", "Manufacturing"],
+    "compliance": ["Factory Act", "IS 807", "ISO 4301", "Client specifications"],
+    "manualPdfUrl": "/manuals/hejaaz-sli-eot-gantry-manual.pdf",
+    "imagePlaceholder": "/images/products/eot-crane.png"
+  },
+  "safe-load-indicator-gantry-crane": {
+    "id": "sli-gantry-crane",
+    "slug": "safe-load-indicator-gantry-crane",
+    "name": "Safe Load Indicator for Gantry Cranes",
+    "tagline": "Outdoor-ready load monitoring and wind-aware safety for gantry operations",
+    "heroImage": "/images/products/gantry-sli-system-layout.svg",
+    "overview": "The Hejaaz SLI for gantry cranes is built for rail-mounted and rubber-tyred gantry applications, including ports, yards, and heavy fabrication. It provides real-time load monitoring, overload protection, and optional wind-speed cutoffs—critical for outdoor, exposed environments where wind can affect safe operation.",
+    "systemLayout": {
+      "title": "System layout – gantry crane",
+      "image": "/images/products/gantry-sli-system-layout.svg",
+      "description": "The gantry SLI layout emphasises outdoor use and wind monitoring. Load is measured at the hook via load pin or rope clamp / tensiometer. A 4-inch display, ATP module, and optional anemometer integrate into one system. Anti-tilt and wind-speed limits are configurable to match your site and crane type.",
+      "items": [
+        "Main and auxiliary hook load measurement",
+        "Load pin or rope clamp / tensiometer",
+        "4-inch display (outdoor-rated, sunlight-readable)",
+        "ATP (anti-tilt) and Modbus module",
+        "Anemometer (wind speed) integration for outdoor use",
+        "Anti-tilt range: +5° / -5° (configurable)"
+      ]
+    },
+    "keyFeatures": [
+      "Wireless, web-based calibration via mobile or laptop—suited to yard and port use",
+      "Multi-load calibration (up to 8 points) for accuracy across the full range",
+      "Single unified display for main and auxiliary hook",
+      "Real-time multi-hook load and percentage capacity",
+      "Toggle ON/OFF for configurable parameters",
+      "Error indication (ERR 1, ERR 2) for fast diagnostics"
+    ],
+    "safetyParameters": [
+      {
+        "icon": "overload",
+        "title": "Overload protection",
+        "description": "OVLD alarm with buzzer and hoist cutoff when safe capacity is exceeded."
+      },
+      {
+        "icon": "anti-tilt",
+        "title": "Anti-tilt (ATP)",
+        "description": "Monitors gantry inclination and triggers alarm/cutoff beyond set limits."
+      },
+      {
+        "icon": "rope-slack",
+        "title": "Rope slack detection",
+        "description": "Detects slack rope and alerts the operator to avoid damage or fouling."
+      },
+      {
+        "icon": "anemometer",
+        "title": "Anemometer (wind speed)",
+        "description": "Wind-speed-based cutoff for outdoor gantry operations—recommended for exposed sites."
+      },
+      {
+        "icon": "error",
+        "title": "Error indication",
+        "description": "ERR 1, ERR 2 and related codes for fault diagnosis and maintenance."
+      }
+    ],
+    "smartCalibration": {
+      "title": "Smart calibration & control",
+      "description": "Calibrate and configure the gantry SLI from a web browser on your phone, tablet, or laptop. No extra software or dongles. Set capacity, alarm levels, anti-tilt, and wind limits remotely—ideal for yard and port deployments.",
+      "points": [
+        "Web-based calibration—no software installation",
+        "Mobile, tablet, or laptop supported",
+        "Remote value setting and parameter updates",
+        "Angle reset and multi-point calibration"
+      ]
+    },
+    "specs": [
+      { "param": "Load range", "value": "As per crane capacity" },
+      { "param": "Accuracy", "value": "±1% F.S." },
+      { "param": "Display", "value": "4-inch LCD, outdoor-rated" },
+      { "param": "Enclosure", "value": "IP55" },
+      { "param": "Power", "value": "24 V DC / 230 V AC" },
+      { "param": "Communication", "value": "Modbus, ATP, optional anemometer" }
+    ],
+    "applications": ["Ports", "Shipyards", "Heavy fabrication", "Container yards", "Logistics"],
+    "compliance": ["ISO 4301", "Factory Act", "Port regulations", "Client specifications"],
+    "manualPdfUrl": "/manuals/hejaaz-sli-eot-gantry-manual.pdf",
+    "imagePlaceholder": "/images/products/gantry-crane.jpg"
+  }
+}

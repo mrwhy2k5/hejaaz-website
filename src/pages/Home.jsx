@@ -14,6 +14,7 @@ import SeoHead from '../components/SeoHead'
 import SectionHeading from '../components/SectionHeading'
 import CTAButtons from '../components/CTAButtons'
 import ProductCard from '../components/ProductCard'
+import HeroSlider from '../components/HeroSlider'
 import productsData from '../data/products.json'
 import industriesData from '../data/industries.json'
 
@@ -51,28 +52,7 @@ export default function Home() {
         path="/"
       />
 
-      {/* Hero */}
-      <section className="relative bg-hejaaz-dark text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-hejaaz-dark via-hejaaz-dark to-hejaaz-gray/30" />
-        <div className="relative container-content py-24 sm:py-30 lg:py-36">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-3xl"
-          >
-            <h1 className="heading-xl text-white leading-tight">
-              Engineering Safety.<br />Powering Industry.
-            </h1>
-            <p className="mt-8 text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed">
-              Crane safety systems, Safe Load Indicators, and industrial automation for OEMs, EPCs, factories, and safety auditors. PAN-India service and support.
-            </p>
-            <div className="mt-12">
-              <CTAButtons variant="dark" />
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* Stats strip */}
       <section className="bg-hejaaz-surface border-y border-hejaaz-surface">

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "image": "/images/hero/slide1.jpg",
+    "imageFallback": "/images/products/tower-crane.jpg",
+    "title": "Ensure total safety in challenging missions",
+    "subtitle": "Precision sensing for incident-free performance"
+  },
+  {
+    "id": "2",
+    "image": "/images/hero/slide2.jpg",
+    "imageFallback": "/images/products/gantry-crane.jpg",
+    "title": "Engineering safety. Powering industry.",
+    "subtitle": "Crane safety systems and industrial automation across India"
+  },
+  {
+    "id": "3",
+    "image": "/images/hero/slide3.jpg",
+    "imageFallback": "/images/products/crawler-crane.jpg",
+    "title": "Safe Load Indicators for every crane type",
+    "subtitle": "From tower to gantry — overload protection you can trust"
+  }
+]

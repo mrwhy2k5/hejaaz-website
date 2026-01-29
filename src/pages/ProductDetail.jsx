@@ -4,11 +4,18 @@ import { FileText, CheckCircle2, ArrowLeft } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
 import PageHeader from '../components/PageHeader'
+import ManualProductDetail from '../components/ManualProductDetail'
 import productsData from '../data/products.json'
+import productManuals from '../data/productManuals.json'
 
 export default function ProductDetail() {
   const { slug } = useParams()
+  const manual = productManuals[slug]
   const product = productsData.find((p) => (p.slug || p.id) === slug)
+
+  if (manual) {
+    return <ManualProductDetail manual={manual} slug={slug} />
+  }
 
   if (!product) {
     return (
@@ -42,7 +49,6 @@ export default function ProductDetail() {
             <ArrowLeft size={18} aria-hidden /> Back to Products
           </Link>
 
-          {/* Two-column: left image, right content */}
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">
               <motion.div
@@ -112,7 +118,6 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Full-width sections below */}
           <div className="mt-16 pt-16 border-t border-hejaaz-surface space-y-16">
             <motion.section
               initial={{ opacity: 0, y: 12 }}

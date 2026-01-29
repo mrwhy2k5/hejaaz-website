@@ -4,12 +4,10 @@ import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navItems = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About Us' },
+  { to: '/about', label: 'About' },
   { to: '/products', label: 'Products' },
-  { to: '/services', label: 'Services' },
-  { to: '/industries', label: 'Industries' },
-  { to: '/certifications', label: 'Certifications' },
+  { to: '/services', label: 'Support' },
+  { to: '/#news', label: 'News' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -18,35 +16,34 @@ export default function Header() {
   const location = useLocation()
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-hejaaz-surface">
-      <div className="container-content">
-        <div className="flex items-center justify-between h-16 lg:h-18">
-          <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Hejaaz Technologies Home">
-            <span className="text-hejaaz-dark font-bold text-xl tracking-tight">HEJAAZ</span>
-            <span className="text-hejaaz-gray-light font-medium text-sm hidden sm:inline">Technologies</span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-[0_1px_3px_0_rgb(0_0_0_/0.06)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-[4.25rem]">
+          <Link
+            to="/"
+            className="shrink-0 text-hejaaz-dark font-bold text-lg sm:text-xl tracking-tight"
+            aria-label="Hejaaz Technologies Home"
+          >
+            Hejaaz Technologies
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
-            {navItems.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === to
-                    ? 'bg-hejaaz-surface text-hejaaz-dark'
-                    : 'text-hejaaz-gray-light hover:text-hejaaz-dark hover:bg-hejaaz-surface'
-                }`}
-              >
-                {label}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
+            {navItems.map(({ to, label }) => {
+              const isNews = to === '/#news'
+              const active = isNews ? false : location.pathname === to
+              return (
+                <Link
+                  key={to}
+                  to={to}
+                  className={`px-4 py-2.5 text-sm font-medium text-hejaaz-gray-light hover:text-hejaaz-dark transition-colors duration-200 ${
+                    active ? 'text-hejaaz-dark' : ''
+                  }`}
+                >
+                  {label}
+                </Link>
+              )
+            })}
           </nav>
-
-          <div className="hidden lg:flex items-center">
-            <Link to="/contact" className="btn-primary text-sm py-2.5 px-5">
-              Request Quote
-            </Link>
-          </div>
 
           <button
             type="button"
@@ -69,26 +66,17 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             className="lg:hidden overflow-hidden border-t border-hejaaz-surface bg-white"
           >
-            <nav className="flex flex-col py-4 px-4 gap-1" aria-label="Mobile navigation">
+            <nav className="flex flex-col py-4 px-4 gap-0.5" aria-label="Mobile navigation">
               {navItems.map(({ to, label }) => (
                 <Link
                   key={to}
                   to={to}
                   onClick={() => setMobileOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                    location.pathname === to ? 'bg-hejaaz-surface text-hejaaz-dark' : 'text-hejaaz-gray-light'
-                  }`}
+                  className="px-4 py-3 text-sm font-medium text-hejaaz-gray-light hover:text-hejaaz-dark hover:bg-hejaaz-surface rounded-lg transition-colors"
                 >
                   {label}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="btn-primary mt-3 mx-4 text-center"
-              >
-                Request Quote
-              </Link>
             </nav>
           </motion.div>
         )}
