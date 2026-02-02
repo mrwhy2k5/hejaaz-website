@@ -2,156 +2,612 @@
   "safe-load-indicator-eot-crane": {
     "id": "sli-eot-crane",
     "slug": "safe-load-indicator-eot-crane",
-    "name": "Safe Load Indicator for EOT Cranes",
-    "tagline": "Real-time load monitoring and safety automation for incident-free operation",
-    "heroImage": "/images/products/eot-sli-system-layout.svg",
-    "overview": "The Hejaaz Safe Load Indicator (SLI) for EOT cranes delivers continuous, real-time load monitoring and safety automation for Electric Overhead Travelling cranes. It protects operators, loads, and equipment through overload prevention, anti-tilt control, and rope-slack detection—keeping your shop-floor and warehouse lifts safe and compliant.",
+    "name": "Safety For EOT Crane",
+    "tagline": "Advanced safety and automation system for overload prevention and accident control.",
+    "heroImage": "/images/manuals/sli-eot-schematic.png",
+    "overview": "The Safe Load Indicator (SLI) is an advanced safety and automation system designed for EOT Cranes to prevent overload, instability, and unsafe lifting conditions. The system continuously monitors critical parameters and provides real-time visual and audible alerts, ensuring operator safety, crane protection, and compliance with safety standards.",
     "systemLayout": {
-      "title": "System layout – EOT crane",
-      "image": "/images/products/eot-sli-system-layout.svg",
-      "description": "The EOT SLI system integrates with your crane’s main and auxiliary hooks, measuring load at the hook or via rope clamp / tensiometer. A central 4-inch display shows live weight and capacity, while ATP (anti-tilt) and Modbus modules support automation and interlocks. Anti-tilt limits are configurable (e.g. +5° / -5°) to suit your layout.",
+      "title": "EOT Crane SLI System Layout",
+      "image": "/images/manuals/sli-eot-schematic.png",
       "items": [
-        "Main hook and auxiliary hook load measurement",
-        "Load pin or rope clamp / tensiometer",
-        "4-inch display unit (sunlight-readable)",
-        "ATP (anti-tilt) and Modbus module",
-        "Anti-tilt range: +5° / -5° (configurable)"
+        "Main Hook Load Pin",
+        "Auxiliary Hook Load Pin",
+        "Rope Clamp / Tensiometer",
+        "Anti-Tilt Sensor (+5° / -5°)",
+        "Hook Cutoff System",
+        "ATP / Modbus Module",
+        "4-Inch Big Display"
       ]
     },
     "keyFeatures": [
-      "Wireless calibration via mobile or web—no ladder or cab access required",
-      "Multi-load calibration (up to 8 points) for high accuracy across the range",
-      "Single unified display for main and auxiliary hook data",
-      "Real-time multi-hook load and percentage capacity",
-      "Toggle ON/OFF for configurable parameters",
-      "Error indication (ERR 1, ERR 2) for quick diagnostics"
+      "Single Unified Display: Real-time load data for main and auxiliary hooks.",
+      "Multi-Load Monitoring: Independent readouts for multi-hook configurations.",
+      "Wi-Fi Access Point: Wireless calibration without software installation.",
+      "Mobile Friendly: Responsive web interface for adjustments via phone/tablet."
     ],
+    "calibrationSetup": {
+      "title": "Seamless Setup & Smart Control",
+      "description": "The SLI system features a built-in Wi-Fi Access Point, enabling wireless calibration and configuration. All adjustments are performed via a secure, mobile-friendly web page.",
+      "image": "/images/manuals/calibration-interface.png",
+      "steps": [
+        "Tilt Angle Setup: 'Angle Reset' button instantly sets current angle as 0°.",
+        "Multi-Load Calibration: Supports up to 8 independent load points for precision.",
+        "Safety Configuration: Input boxes for Load, Tilt, Wind, and Rope slack limits.",
+        "Toggling Options: Interface buttons to enable/disable safety parameters."
+      ]
+    },
     "safetyParameters": [
       {
-        "icon": "overload",
-        "title": "Overload protection",
-        "description": "OVLD alarm with buzzer and hoist cutoff when safe capacity is exceeded."
+        "icon": "shield",
+        "title": "Overload Protection (OVLD)",
+        "description": "Automatic hoist cutoff during overload. Displays 'OVLD' and triggers buzzer."
       },
       {
-        "icon": "anti-tilt",
-        "title": "Anti-tilt (ATP)",
-        "description": "Monitors crane inclination and triggers alarm/cutoff if limits are exceeded."
+        "icon": "activity",
+        "title": "Anti-Tilt Protection (ATP)",
+        "description": "Triggers at ±5°. Displays 'ATP' and prevents instability."
       },
       {
         "icon": "rope-slack",
-        "title": "Rope slack detection",
-        "description": "Detects slack rope conditions and alerts the operator to prevent damage or fouling."
+        "title": "Rope Slack Protection",
+        "description": "Detects slack to prevent load drops and mechanical stress."
       },
       {
-        "icon": "anemometer",
-        "title": "Anemometer (wind speed)",
-        "description": "Optional wind-speed cutoff for indoor-outdoor installations."
-      },
-      {
-        "icon": "error",
-        "title": "Error indication",
-        "description": "ERR 1, ERR 2 and related codes for fault diagnosis and maintenance."
+        "icon": "alert",
+        "title": "Error Indication System",
+        "description": "ERR 1 (Comm issue) Quick fault identification."
       }
     ],
-    "smartCalibration": {
-      "title": "Smart calibration & control",
-      "description": "Calibrate and configure the EOT SLI from a browser—no dedicated software or dongles. Use a smartphone, tablet, or laptop on your site Wi-Fi to set capacity, alarm levels, and anti-tilt limits remotely.",
-      "points": [
-        "Web-based calibration—no software installation",
-        "Works on mobile, tablet, or laptop",
-        "Remote value setting and parameter updates",
-        "Angle reset and multi-point calibration support"
-      ]
-    },
     "specs": [
-      { "param": "Load range", "value": "1–100 T (configurable)" },
-      { "param": "Accuracy", "value": "±1% F.S." },
-      { "param": "Display", "value": "4-inch LCD, sunlight readable" },
-      { "param": "Power", "value": "230 V AC / 24 V DC" },
-      { "param": "Enclosure", "value": "IP54" },
-      { "param": "Communication", "value": "Modbus, ATP module" }
+      {
+        "param": "Model",
+        "value": "HTSA-OHC/V1.0"
+      },
+      {
+        "param": "Power supply",
+        "value": "24v dc / 230v AC"
+      },
+      {
+        "param": "Display Size(per digit)",
+        "value": "4 inch"
+      },
+      {
+        "param": "Accuracy",
+        "value": "±1.5% of F.S"
+      },
+      {
+        "param": "No.of outputs",
+        "value": "2 outputs"
+      },
+      {
+        "param": "Enclosure",
+        "value": "Industrial grade (IP 65)"
+      },
+      {
+        "param": "Capacity",
+        "value": "UPTO 150 tons"
+      },
+      {
+        "param": "Load measurement",
+        "value": "Load pin / Rope tension"
+      },
+      {
+        "param": "Operating temp",
+        "value": "upto 55 °C"
+      },
+      {
+        "param": "Indicators",
+        "value": "Buzzer & Display LED"
+      },
+      {
+        "param": "Safety Protection",
+        "value": "Overload-Rope Slack-ATP -Wind speed"
+      },
+      {
+        "param": "Communication Protocol",
+        "value": "MODBUS RS485/WEB INTERFACE"
+      },
+      {
+        "param": "Calibration Method",
+        "value": "Mobile /Laptop WEB PAGE"
+      },
+      {
+        "param": "Wireless Connectivity",
+        "value": "WI-FI 5 (802.11ac)"
+      }
     ],
-    "applications": ["Workshops", "Warehouses", "Steel plants", "Foundries", "Manufacturing"],
-    "compliance": ["Factory Act", "IS 807", "ISO 4301", "Client specifications"],
-    "manualPdfUrl": "/manuals/hejaaz-sli-eot-gantry-manual.pdf",
-    "imagePlaceholder": "/images/products/eot-crane.png"
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
   },
   "safe-load-indicator-gantry-crane": {
     "id": "sli-gantry-crane",
     "slug": "safe-load-indicator-gantry-crane",
-    "name": "Safe Load Indicator for Gantry Cranes",
-    "tagline": "Outdoor-ready load monitoring and wind-aware safety for gantry operations",
-    "heroImage": "/images/products/gantry-sli-system-layout.svg",
-    "overview": "The Hejaaz SLI for gantry cranes is built for rail-mounted and rubber-tyred gantry applications, including ports, yards, and heavy fabrication. It provides real-time load monitoring, overload protection, and optional wind-speed cutoffs—critical for outdoor, exposed environments where wind can affect safe operation.",
+    "name": "Gantry Crane Safety",
+    "tagline": "Heavy-duty stability and wind speed monitoring for industrial gantry systems.",
+    "heroImage": "/images/manuals/sli-gantry-schematic.png",
+    "overview": "The Safe Load Indicator (SLI) is an advanced safety and automation system designed for Gantry Cranes to prevent overload, instability, and unsafe lifting conditions. It includes an Anemometer for wind speed monitoring, essential for outdoor gantry operations. The system ensures compliance and maximum operator safety.",
     "systemLayout": {
-      "title": "System layout – gantry crane",
-      "image": "/images/products/gantry-sli-system-layout.svg",
-      "description": "The gantry SLI layout emphasises outdoor use and wind monitoring. Load is measured at the hook via load pin or rope clamp / tensiometer. A 4-inch display, ATP module, and optional anemometer integrate into one system. Anti-tilt and wind-speed limits are configurable to match your site and crane type.",
+      "title": "Gantry Crane SLI System Layout",
+      "image": "/images/manuals/sli-gantry-schematic.png",
       "items": [
-        "Main and auxiliary hook load measurement",
-        "Load pin or rope clamp / tensiometer",
-        "4-inch display (outdoor-rated, sunlight-readable)",
-        "ATP (anti-tilt) and Modbus module",
-        "Anemometer (wind speed) integration for outdoor use",
-        "Anti-tilt range: +5° / -5° (configurable)"
+        "Main Hook Load Pin",
+        "Auxiliary Hook Load Pin",
+        "Rope Clamp / Tensiometer",
+        "Anti-Tilt Sensor (+5° / -5°)",
+        "Hook Cutoff System",
+        "ATP / Modbus Module",
+        "4-Inch Big Display",
+        "Anemometer (Wind Speed Monitoring)"
       ]
     },
     "keyFeatures": [
-      "Wireless, web-based calibration via mobile or laptop—suited to yard and port use",
-      "Multi-load calibration (up to 8 points) for accuracy across the full range",
-      "Single unified display for main and auxiliary hook",
-      "Real-time multi-hook load and percentage capacity",
-      "Toggle ON/OFF for configurable parameters",
-      "Error indication (ERR 1, ERR 2) for fast diagnostics"
+      "Anemometer Integration: Real-time wind velocity measurement and auto-cutoff.",
+      "Single Unified Display: Real-time load data for main and auxiliary hooks.",
+      "Wi-Fi Access Point: Wireless calibration via mobile/tablet/laptop.",
+      "Multi-Load Monitoring: High-precision support for multi-hook cranes."
     ],
+    "calibrationSetup": {
+      "title": "Seamless Setup & Smart Control",
+      "description": "The SLI system features a built-in Wi-Fi Access Point, enabling wireless calibration. Includes specialized Wind Speed limit settings and Angle Reset for outdoor stability.",
+      "image": "/images/manuals/calibration-interface.png",
+      "steps": [
+        "Tilt Angle Setup: Instant 0° calibration for ground stability.",
+        "Wind Speed Config: Input safe limits for automatic high-wind shutdown.",
+        "Multi-Load Calibration: Up to 8 points for diverse lifting ranges.",
+        "Wireless Sync: Full control via mobile-friendly web interface."
+      ]
+    },
     "safetyParameters": [
       {
-        "icon": "overload",
-        "title": "Overload protection",
-        "description": "OVLD alarm with buzzer and hoist cutoff when safe capacity is exceeded."
+        "icon": "shield",
+        "title": "Overload Protection (OVLD)",
+        "description": "Automatic cutoff with buzzer alert and 'OVLD' display indicator."
       },
       {
-        "icon": "anti-tilt",
-        "title": "Anti-tilt (ATP)",
-        "description": "Monitors gantry inclination and triggers alarm/cutoff beyond set limits."
+        "icon": "zap",
+        "title": "Wind Speed Monitoring",
+        "description": "Auto-cutoff when wind velocity exceeds safe operational limits."
       },
       {
-        "icon": "rope-slack",
-        "title": "Rope slack detection",
-        "description": "Detects slack rope and alerts the operator to avoid damage or fouling."
+        "icon": "activity",
+        "title": "Anti-Tilt Protection (ATP)",
+        "description": "Monitors angular tilt (±5°) to prevent tipping or instability."
+      },
+      {
+        "icon": "alert",
+        "title": "Error Indication (ERR)",
+        "description": "Visual LED codes (ERR 1/2) for rapid sensors/comm diagnosis."
+      }
+    ],
+    "specs": [
+      {
+        "param": "Model",
+        "value": "HTSA-GTC/V1.0"
+      },
+      {
+        "param": "Power supply",
+        "value": "24v dc / 230v AC"
+      },
+      {
+        "param": "Display Size(per digit)",
+        "value": "4 inch"
+      },
+      {
+        "param": "Accuracy",
+        "value": "±1.5% of F.S"
+      },
+      {
+        "param": "No.of outputs",
+        "value": "2 outputs"
+      },
+      {
+        "param": "Enclosure",
+        "value": "Industrial grade (IP 65)"
+      },
+      {
+        "param": "Capacity",
+        "value": "UPTO 200 tons"
+      },
+      {
+        "param": "Load measurement",
+        "value": "Load pin / Rope tension"
+      },
+      {
+        "param": "Operating temp",
+        "value": "upto 55 °C"
+      },
+      {
+        "param": "Indicators",
+        "value": "Buzzer & Display LED"
+      },
+      {
+        "param": "Safety Protection",
+        "value": "Overload-Rope Slack-ATP -Wind speed"
+      },
+      {
+        "param": "Communication Protocol",
+        "value": "MODBUS RS485/WEB INTERFACE"
+      },
+      {
+        "param": "Calibration Method",
+        "value": "Mobile /Laptop WEB PAGE"
+      },
+      {
+        "param": "Wireless Connectivity",
+        "value": "WI-FI 5 (802.11ac)"
+      }
+    ],
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
+  },
+  "safe-load-indicator-tower-crane": {
+    "id": "sli-tower-crane",
+    "slug": "safe-load-indicator-tower-crane",
+    "name": "Safe Load Indicator – Tower Crane",
+    "tagline": "Precision Radius and Capacity Management",
+    "heroImage": "/images/manuals/sli-tower.png",
+    "overview": "Our SLI for Tower Cranes provides radius-based capacity calculation and overload prevention. Essential for high-rise construction where reach and vertical stability are critical.",
+    "systemLayout": {
+      "title": "Tower Crane Layout Correct",
+      "image": "/images/manuals/sli-tower.png",
+      "items": [
+        "Display Unit",
+        "Anemometer Integration",
+        "Tower Indicator Lamp",
+        "Trolley Length Sensor",
+        "Hook Height Sensor",
+        "Dynamometer Unit",
+        "Load Pin Tracking"
+      ]
+    },
+    "safetyParameters": [
+      {
+        "icon": "radius",
+        "title": "Radius Limiter",
+        "description": "Prevents excessive reach beyond load capacity."
       },
       {
         "icon": "anemometer",
-        "title": "Anemometer (wind speed)",
-        "description": "Wind-speed-based cutoff for outdoor gantry operations—recommended for exposed sites."
+        "title": "Wind Velocity",
+        "description": "Safe operation limits for narrow structures."
+      },
+      {
+        "icon": "angle",
+        "title": "Angle Accuracy",
+        "description": "Ensures boom position is verified vs chart."
+      },
+      {
+        "icon": "overload",
+        "title": "Hoist Cut-Off",
+        "description": "Stops winch operation immediately on limit."
+      }
+    ],
+    "specs": [
+      {
+        "param": "Max Radius",
+        "value": "As per Boom Length"
+      },
+      {
+        "param": "Display",
+        "value": "LCD Cab Display"
+      },
+      {
+        "param": "Accuracy",
+        "value": "±1% Moment Calculation"
+      }
+    ],
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
+  },
+  "safe-load-indicator-telescopic-crane": {
+    "id": "sli-telescopic-crane",
+    "slug": "safe-load-indicator-telescopic-crane",
+    "name": "Safe Load Indicator – Telescopic Crane",
+    "tagline": "Multi-Section Boom Extension Safety",
+    "heroImage": "/images/manuals/sli-telescopic.png",
+    "overview": "Automated capacity monitoring for telescopic cranes. Dynamically tracks boom length and angle to calculate safe lifting limits across all extension stages.",
+    "systemLayout": {
+      "title": "Telescopic SLI Layout Correct",
+      "image": "/images/manuals/sli-telescopic.png",
+      "items": [
+        "Main Display Unit",
+        "Anemometer Integration",
+        "Tower Indicator Lamp",
+        "Cable Tension Drum",
+        "Laser Length Sensor",
+        "Load Sensor Unit",
+        "Limit Switch (Standard)",
+        "Contactless Limit Switch"
+      ]
+    },
+    "safetyParameters": [
+      {
+        "icon": "angle",
+        "title": "Boom Angle",
+        "description": "Precision sensing for geometry calculation."
+      },
+      {
+        "icon": "overload",
+        "title": "Capacity Lock",
+        "description": "Inhibits unsafe extension or boom lowering."
       },
       {
         "icon": "error",
-        "title": "Error indication",
-        "description": "ERR 1, ERR 2 and related codes for fault diagnosis and maintenance."
+        "title": "A2B Protection",
+        "description": "Prevents hook-to-boom collision errors."
+      },
+      {
+        "icon": "anti-tilt",
+        "title": "Tip-Over Prevention",
+        "description": "Maintains center of gravity safety logic."
       }
     ],
-    "smartCalibration": {
-      "title": "Smart calibration & control",
-      "description": "Calibrate and configure the gantry SLI from a web browser on your phone, tablet, or laptop. No extra software or dongles. Set capacity, alarm levels, anti-tilt, and wind limits remotely—ideal for yard and port deployments.",
-      "points": [
-        "Web-based calibration—no software installation",
-        "Mobile, tablet, or laptop supported",
-        "Remote value setting and parameter updates",
-        "Angle reset and multi-point calibration"
+    "specs": [
+      {
+        "param": "Response Time",
+        "value": "<100ms"
+      },
+      {
+        "param": "IP Rating",
+        "value": "IP67 (External Sensors)"
+      }
+    ],
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
+  },
+  "safe-load-indicator-pick-and-carry-crane": {
+    "id": "sli-pick-carry-crane",
+    "slug": "safe-load-indicator-pick-and-carry-crane",
+    "name": "Safe Load Indicator – Pick & Carry Crane",
+    "tagline": "Dynamic Safety for Mobile Loading",
+    "heroImage": "/images/manuals/sli-pick-and-carry.png",
+    "overview": "Specialized SLI for mobile lifting units. Accounts for dynamic forces during travel and ensures the crane operates within safe tipping limits during pick-and-carry maneuvers.",
+    "systemLayout": {
+      "title": "Pick & Carry Layout Correct",
+      "image": "/images/manuals/sli-pick-and-carry.png",
+      "items": [
+        "Display Unit",
+        "Cable Tension Drum",
+        "Laser Length Sensor",
+        "Pressure Sensor Unit",
+        "Limit Switch Safety",
+        "Contactless Limit Switch"
       ]
     },
-    "specs": [
-      { "param": "Load range", "value": "As per crane capacity" },
-      { "param": "Accuracy", "value": "±1% F.S." },
-      { "param": "Display", "value": "4-inch LCD, outdoor-rated" },
-      { "param": "Enclosure", "value": "IP55" },
-      { "param": "Power", "value": "24 V DC / 230 V AC" },
-      { "param": "Communication", "value": "Modbus, ATP, optional anemometer" }
+    "safetyParameters": [
+      {
+        "icon": "overload",
+        "title": "Dynamic Overload",
+        "description": "Protects against momentum-based tipping."
+      },
+      {
+        "icon": "anti-tilt",
+        "title": "Travel Safety",
+        "description": "Inhibits travel if load is unstable."
+      },
+      {
+        "icon": "angle",
+        "title": "Height Control",
+        "description": "Limits boom height for low-clearance travel."
+      },
+      {
+        "icon": "error",
+        "title": "System Check",
+        "description": "Real-time verification of sensor array."
+      }
     ],
-    "applications": ["Ports", "Shipyards", "Heavy fabrication", "Container yards", "Logistics"],
-    "compliance": ["ISO 4301", "Factory Act", "Port regulations", "Client specifications"],
-    "manualPdfUrl": "/manuals/hejaaz-sli-eot-gantry-manual.pdf",
-    "imagePlaceholder": "/images/products/gantry-crane.jpg"
+    "specs": [
+      {
+        "param": "Static Accuracy",
+        "value": "±0.5%"
+      },
+      {
+        "param": "Enclosure",
+        "value": "Vibration Resistant IP65"
+      }
+    ],
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
+  },
+  "safe-load-indicator-crawler-crane": {
+    "id": "sli-crawler-crane",
+    "slug": "safe-load-indicator-crawler-crane",
+    "name": "Safe Load Indicator – Crawler Crane",
+    "tagline": "Heavy Duty Stability for Lattice Structures",
+    "heroImage": "/images/manuals/sli-crawler.png",
+    "overview": "Engineered for lattice boom crawlers, this system manages massive moment calculations and ground stability. Protects against excessive radius and structural overload during stationary or travelling lifts.",
+    "systemLayout": {
+      "title": "Crawler SLI Layout Correct",
+      "image": "/images/manuals/sli-crawler.png",
+      "items": [
+        "Anemometer Unit",
+        "Tower Indicator Lamp",
+        "Primary Load Sensor",
+        "Angle Tilting Sensor",
+        "Cab Display Unit",
+        "Limit Switch (Standard)",
+        "Contactless Limit Switch"
+      ]
+    },
+    "safetyParameters": [
+      {
+        "icon": "overload",
+        "title": "Moment Limiter",
+        "description": "Prevents structural failure of the lattice."
+      },
+      {
+        "icon": "angle",
+        "title": "Boom Radius",
+        "description": "Tracks reach vs dynamic load chart."
+      },
+      {
+        "icon": "anti-tilt",
+        "title": "Level Monitoring",
+        "description": "Ensures ground stability for crawlers."
+      },
+      {
+        "icon": "error",
+        "title": "Health Logic",
+        "description": "Verifies all hardline sensor signals."
+      }
+    ],
+    "specs": [
+      {
+        "param": "Load Limit",
+        "value": "1000 T Capacity"
+      },
+      {
+        "param": "Operating Temp",
+        "value": "-20C to +60C"
+      }
+    ],
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
+  },
+  "safe-load-indicator-forklift": {
+    "id": "sli-forklift",
+    "slug": "safe-load-indicator-forklift",
+    "name": "Safe Load Indicator – Forklift",
+    "tagline": "Safety and Stability Monitoring for Forklifts",
+    "heroImage": "/images/manuals/sli-forklift.png",
+    "overview": "The Hejaaz Forklift Safe Load Indicator provides critical stability monitoring for warehouse and industrial forklifts. By tracking load weight and lift height, it prevents forward tip-overs and ensures operator safety during high-reach maneuvers.",
+    "systemLayout": {
+      "title": "Forklift SLI Layout Correct",
+      "image": "/images/manuals/sli-forklift.png",
+      "items": [
+        "Display Unit",
+        "Pressure Sensor",
+        "Height Sensor"
+      ]
+    },
+    "safetyParameters": [
+      {
+        "icon": "overload",
+        "title": "Load Monitoring",
+        "description": "Real-time weight detection on forks."
+      },
+      {
+        "icon": "anti-tilt",
+        "title": "Stability Protection",
+        "description": "Prevents tip-over during lift."
+      },
+      {
+        "icon": "radius",
+        "title": "Height Limiter",
+        "description": "Restricts motion at unsafe elevations."
+      },
+      {
+        "icon": "error",
+        "title": "Health Check",
+        "description": "Failsafe sensor communication."
+      }
+    ],
+    "specs": [
+      {
+        "param": "Load Range",
+        "value": "1–10 T Typical"
+      },
+      {
+        "param": "Response Time",
+        "value": "<150ms"
+      }
+    ],
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
+  },
+  "safe-load-indicator-tipper-truck": {
+    "id": "sli-tipper-truck",
+    "slug": "safe-load-indicator-tipper-truck",
+    "name": "Safe Load Indicator – Tipper Truck",
+    "tagline": "Axle Load and Tipping Stability System",
+    "heroImage": "/images/manuals/sli-tipper.png",
+    "overview": "Advanced payload monitoring and tipping safety for heavy dump trucks and tippers. Prevents overloading and ensures chassis stability during discharge operations in mines and construction sites.",
+    "systemLayout": {
+      "title": "Tipper SLI Layout Correct",
+      "image": "/images/manuals/sli-tipper.png",
+      "items": [
+        "Main Display",
+        "Buzzer/Alarm Unit",
+        "External Indicator Lights",
+        "Anti-Tilt Sensor (+5/-5 Deg)",
+        "Proximity Sensor",
+        "Load Sensor 1",
+        "Load Sensor 2"
+      ]
+    },
+    "safetyParameters": [
+      {
+        "icon": "overload",
+        "title": "Payload Safety",
+        "description": "Prevents road-legal limits violation."
+      },
+      {
+        "icon": "anti-tilt",
+        "title": "Roll-Over Guard",
+        "description": "Monitors tilt during body raise."
+      },
+      {
+        "icon": "error",
+        "title": "Axle Balance",
+        "description": "Detects uneven load distribution."
+      },
+      {
+        "icon": "anemometer",
+        "title": "Speed Interlock",
+        "description": "Alerts if moving with body raised."
+      }
+    ],
+    "specs": [
+      {
+        "param": "Load Capacity",
+        "value": "Up to 5 T"
+      },
+      {
+        "param": "Power Supply",
+        "value": "12/24V Vehicle DC"
+      }
+    ],
+    "compliance": [
+      "ISO 9001:2015 CERTIFIED COMPANY",
+      "EXPERTISE IN SAFE LOAD SYSTEMS",
+      "INNOVATIVE AND COST-EFFECTIVE SOLUTIONS",
+      "STRONG CUSTOMER SUPPORT",
+      "PROVEN INDUSTRIAL SAFETY AUTOMATION"
+    ]
   }
 }

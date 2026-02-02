@@ -1,23 +1,32 @@
 [
   {
     "id": "1",
-    "image": "/images/hero/slide1.jpg",
-    "imageFallback": "/images/products/tower-crane.jpg",
-    "title": "Ensure total safety in challenging missions",
-    "subtitle": "Precision sensing for incident-free performance"
+    "image": "/images/products/tower-crane.jpg",
+    "title": "Making Crane Lifting Safer",
+    "subtitle": "Smart safety systems that prevent overload, tilt, and accidents",
+    "cta_primary": "Request Quote",
+    "cta_secondary": "Talk to Engineer",
+    "link_primary": "https://wa.me/919361227290",
+    "link_secondary": "/contact"
   },
   {
     "id": "2",
-    "image": "/images/hero/slide2.jpg",
-    "imageFallback": "/images/products/gantry-crane.jpg",
-    "title": "Engineering safety. Powering industry.",
-    "subtitle": "Crane safety systems and industrial automation across India"
+    "image": "/images/products/eot-crane.png",
+    "title": "Prevent Crane Overload Before It Happens",
+    "subtitle": "Real-time load monitoring with audio and visual warnings",
+    "cta_primary": "View Safety Features",
+    "link_primary": "/products",
+    "cta_secondary": "Request Quote",
+    "link_secondary": "https://wa.me/919361227290"
   },
   {
     "id": "3",
-    "image": "/images/hero/slide3.jpg",
-    "imageFallback": "/images/products/crawler-crane.jpg",
-    "title": "Safe Load Indicators for every crane type",
-    "subtitle": "From tower to gantry — overload protection you can trust"
+    "image": "/images/products/gantry-crane.jpg",
+    "title": "Trusted Safety for Industrial Cranes",
+    "subtitle": "Designed for EOT, gantry, and material handling cranes",
+    "cta_primary": "Explore Products",
+    "link_primary": "/products",
+    "cta_secondary": "Talk to Engineer",
+    "link_secondary": "/contact"
   }
 ]

@@ -1,31 +1,82 @@
+import { motion } from 'framer-motion'
+import { ArrowRight, MessageCircle } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
 import PageHeader from '../components/PageHeader'
 import SectionHeading from '../components/SectionHeading'
 import ProductCard from '../components/ProductCard'
+import CTAButtons from '../components/CTAButtons'
 import productsData from '../data/products.json'
 
 export default function Products() {
+  const fadeInSlideUp = {
+    initial: { opacity: 0, y: 15 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+  }
+
   return (
     <Layout>
-      <SeoHead title="Products" description="Safe Load Indicators for tower, EOT, gantry, crawler, telescopic, pick & carry, forklift, tipper truck." path="/products" />
-      <PageHeader
-        title="Products"
-        subtitle="Safe Load Indicators for tower, EOT, gantry, crawler, telescopic, pick & carry cranes, forklifts, and tipper trucks."
+      <SeoHead
+        title="Industrial Safety Systems Catalog"
+        description="Explore our range of Safe Load Indicators and crane safety systems for tower, EOT, gantry, and mobile cranes."
+        path="/products"
       />
 
-      <section className="section-padding bg-white">
+      <PageHeader
+        title="Industrial Safety & Load Monitoring"
+        subtitle="Precision engineering solutions for real-time crane overload protection and asset automation."
+        backgroundImage="/images/industrial-bg-cranes.png"
+      />
+
+      {/* ============ PRODUCT MATRIX ============ */}
+      <section className="py-16 lg:py-24 bg-[var(--bg-main)] transition-colors duration-500">
         <div className="container-content">
-          <SectionHeading
-            title="Safe Load Indicators"
-            subtitle="Each product links to a detail page with overview, components, working principle, features, specs, applications, and compliance."
-            animate={false}
-          />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-[10px] font-black uppercase tracking-[0.3em] flex items-center gap-3" style={{ color: 'var(--text-muted)' }}>
+              <div className="w-1.5 h-1.5 rounded-full bg-hejaaz-secondary" />
+              Product Matrix
+            </h2>
+            <div className="text-[10px] font-black uppercase tracking-widest opacity-60" style={{ color: 'var(--text-muted)' }}>
+              {productsData.length} Systems Active
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {productsData.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
+
+          {/* COMPACT CTA SECTION */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-24 bg-hejaaz-secondary p-10 lg:p-16 rounded-[2rem] text-white relative overflow-hidden"
+          >
+            <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+              <div className="max-w-xl">
+                <h3 className="text-3xl lg:text-5xl font-black mb-6 tracking-tighter text-white uppercase leading-none">Custom Engineering <br />Requirements?</h3>
+                <p className="text-white/80 text-lg font-bold uppercase tracking-tight">
+                  Tailoring safety systems for unconventional setups and OEM requirements.
+                </p>
+              </div>
+              <div className="flex">
+                <a
+                  href="https://wa.me/919361227290"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white text-hejaaz-secondary !py-6 !px-12 !text-[12px] uppercase tracking-[0.2em] font-black rounded-2xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-4"
+                >
+                  <MessageCircle size={20} /> Request Technical Quote
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>

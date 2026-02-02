@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTheme } from '../context/ThemeContext'
 
 const navItems = [
+  { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/products', label: 'Products' },
   { to: '/services', label: 'Support' },
@@ -13,70 +15,180 @@ const navItems = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const { theme, toggleTheme } = useTheme()
   const location = useLocation()
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const isHome = location.pathname === '/'
+  const isGlass = scrolled || !isHome
+
+  const isActiveLink = (to) => {
+    if (to === '/#news') return false
+    if (to === '/') return location.pathname === '/'
+    return location.pathname === to
+  }
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-[0_1px_3px_0_rgb(0_0_0_/0.06)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-[4.25rem]">
+    <header
+      className={`
+        fixed top-0 left-0 right-0 z-50 
+        transition-all duration-500
+        ${isGlass
+          ? 'glass-panel py-3 shadow-premium'
+          : 'bg-transparent py-4'}
+      `}
+    >
+      <div className="container-content">
+        <div className="flex items-center justify-between h-14">
+          {/* Logo - REFINED BRANDING */}
           <Link
             to="/"
-            className="shrink-0 text-hejaaz-dark font-bold text-lg sm:text-xl tracking-tight"
+            className="flex items-center gap-4 group shrink-0"
             aria-label="Hejaaz Technologies Home"
           >
-            Hejaaz Technologies
+            <div className="w-11 h-11 rounded-xl bg-hejaaz-secondary flex items-center justify-center text-white shadow-lg shadow-hejaaz-secondary/30 transition-all group-hover:scale-110 group-hover:rotate-3">
+              <span className="font-black text-[15px] tracking-tighter">HT</span>
+            </div>
+            <div className="flex flex-col">
+              <span
+                className={`font-black text-xl leading-none tracking-tighter uppercase transition-colors duration-500 ${isGlass ? 'text-[var(--text-main)]' : 'text-white'}`}
+              >
+                HEJAAZ
+              </span>
+              <span
+                className={`font-bold text-[10px] uppercase tracking-[0.4em] leading-none mt-1.5 transition-colors duration-500 ${isGlass ? 'text-[var(--text-muted)]' : 'text-white/70'}`}
+              >
+                Technologies
+              </span>
+            </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
-            {navItems.map(({ to, label }) => {
-              const isNews = to === '/#news'
-              const active = isNews ? false : location.pathname === to
-              return (
-                <Link
-                  key={to}
-                  to={to}
-                  className={`px-4 py-2.5 text-sm font-medium text-hejaaz-gray-light hover:text-hejaaz-dark transition-colors duration-200 ${
-                    active ? 'text-hejaaz-dark' : ''
-                  }`}
-                >
-                  {label}
-                </Link>
-              )
-            })}
+          {/* Desktop Navigation - CRYSTAL CLEAR */}
+          <nav className="hidden lg:flex items-center flex-1 justify-end ml-16" aria-label="Main navigation">
+            <div className="flex items-center gap-10 mr-12">
+              {navItems.map(({ to, label }) => {
+                const active = isActiveLink(to)
+                return (
+                  <Link
+                    key={to}
+                    to={to}
+                    className={`
+                      relative px-1 py-1 text-[11px] font-black uppercase tracking-[0.25em] transition-all duration-300
+                      ${active
+                        ? 'text-hejaaz-secondary'
+                        : (isGlass
+                          ? 'text-[var(--text-main)] hover:text-hejaaz-secondary'
+                          : 'text-white/90 hover:text-white')
+                      }
+                    `}
+                  >
+                    {label}
+                    {active && (
+                      <motion.div
+                        layoutId="nav-underline"
+                        className="absolute -bottom-2 left-0 right-0 h-0.5 bg-hejaaz-secondary rounded-full shadow-[0_0_15px_var(--hejaaz-secondary)]"
+                      />
+                    )}
+                  </Link>
+                )
+              })}
+            </div>
+
+            <div className="flex items-center gap-6">
+              <div className={`w-[1px] h-6 transition-colors duration-500 ${isGlass ? 'bg-hejaaz-border' : 'bg-white/20'}`} />
+
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className={`
+                  p-3 rounded-xl transition-all flex items-center justify-center shadow-sm
+                  ${isGlass
+                    ? 'bg-hejaaz-surface text-slate-700 dark:text-slate-300 hover:bg-hejaaz-secondary hover:text-white'
+                    : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-md border border-white/10'
+                  }
+                `}
+                aria-label="Toggle theme"
+              >
+                {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              </button>
+
+              {/* CTA Button */}
+              <Link
+                to="/contact"
+                className="btn-primary !py-3 !px-10 text-[11px] font-black uppercase tracking-widest shadow-2xl"
+              >
+                Get Quote
+              </Link>
+            </div>
           </nav>
 
-          <button
-            type="button"
-            onClick={() => setMobileOpen((o) => !o)}
-            className="lg:hidden p-2.5 rounded-lg text-hejaaz-dark hover:bg-hejaaz-surface transition-colors"
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="lg:hidden flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-xl bg-hejaaz-surface text-slate-700 dark:text-slate-300 transition-all flex items-center justify-center"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileOpen((o) => !o)}
+              className="p-2.5 rounded-xl bg-hejaaz-secondary text-white shadow-lg shadow-hejaaz-secondary/20 transition-all active:scale-95 flex items-center justify-center"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
+      {/* Mobile Navigation */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden overflow-hidden border-t border-hejaaz-surface bg-white"
+            className="absolute top-full left-0 right-0 glass-panel lg:hidden z-40 overflow-hidden"
           >
-            <nav className="flex flex-col py-4 px-4 gap-0.5" aria-label="Mobile navigation">
-              {navItems.map(({ to, label }) => (
+            <nav className="flex flex-col p-6 gap-2">
+              {navItems.map(({ to, label }) => {
+                const active = isActiveLink(to)
+                return (
+                  <Link
+                    key={to}
+                    to={to}
+                    onClick={() => setMobileOpen(false)}
+                    className={`
+                      px-5 py-4 text-[11px] font-black uppercase tracking-[0.2em] rounded-xl transition-all
+                      ${active
+                        ? 'text-white bg-hejaaz-secondary shadow-lg shadow-hejaaz-secondary/30'
+                        : 'text-text-main hover:bg-hejaaz-surface'
+                      }
+                    `}
+                  >
+                    {label}
+                  </Link>
+                )
+              })}
+              <div className="mt-6 pt-6 border-t border-hejaaz-border">
                 <Link
-                  key={to}
-                  to={to}
+                  to="/contact"
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-hejaaz-gray-light hover:text-hejaaz-dark hover:bg-hejaaz-surface rounded-lg transition-colors"
+                  className="btn-primary w-full justify-center !py-5"
                 >
-                  {label}
+                  Get Quote
                 </Link>
-              ))}
+              </div>
             </nav>
           </motion.div>
         )}

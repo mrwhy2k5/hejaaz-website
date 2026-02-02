@@ -1,125 +1,162 @@
 import { useState, useEffect, useCallback } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import CTAButtons from './CTAButtons'
+import { ChevronLeft, ChevronRight, MessageCircle, Headset } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import heroSlides from '../data/heroSlides.json'
 
-const AUTOPLAY_MS = 6000
-const TRANSITION_DURATION = 0.5
-
+/**
+ * FULL-WIDTH HERO SLIDER (MODERN INDUSTRIAL)
+ * - 85-90vh height
+ * - DARK BLUE / CHARCOAL OVERLAY (70%)
+ * - LARGE BOLD TYPOGRAPHY
+ */
 export default function HeroSlider() {
-  const [index, setIndex] = useState(0)
-  const slides = heroSlides
-  const total = slides.length
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
-  const go = useCallback(
-    (direction) => {
-      setIndex((i) => {
-        if (direction === 'next') return (i + 1) % total
-        return (i - 1 + total) % total
-      })
-    },
-    [total]
-  )
+  const slideCount = heroSlides.length
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % slideCount)
+  }, [slideCount])
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + slideCount) % slideCount)
+  }, [slideCount])
 
   useEffect(() => {
-    const t = setInterval(() => go('next'), AUTOPLAY_MS)
-    return () => clearInterval(t)
-  }, [go])
+    if (isPaused) return
+    const interval = setInterval(nextSlide, 5000)
+    return () => clearInterval(interval)
+  }, [nextSlide, isPaused])
 
-  const slide = slides[index]
+  const fadeVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 }
+  }
+
+  const zoomVariants = {
+    initial: { scale: 1.1, opacity: 0 },
+    animate: { scale: 1, opacity: 0.5, transition: { duration: 10, ease: "easeOut" } }
+  }
 
   return (
-    <section className="relative w-full min-h-[70vh] sm:min-h-[85vh] lg:min-h-screen" aria-label="Hero slider">
-      <div className="absolute inset-0">
-        <AnimatePresence mode="wait" initial={false}>
+    <section
+      className="relative h-[90vh] lg:h-screen w-full overflow-hidden bg-hejaaz-primary"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          variants={fadeVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 w-full h-full"
+        >
+          {/* Background Image with Slow Zoom */}
           <motion.div
-            key={slide.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: TRANSITION_DURATION }}
-            className="absolute inset-0"
-          >
-            <img
-              src={slide.image}
-              alt=""
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.onerror = null
-                e.target.src = slide.imageFallback || '/images/hero/placeholder.svg'
-              }}
-            />
-            <div
-              className="absolute inset-0 bg-hejaaz-dark/50"
-              aria-hidden
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+            variants={zoomVariants}
+            initial="initial"
+            animate="animate"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat grayscale"
+            style={{
+              backgroundImage: `url(${heroSlides[currentIndex].image})`,
+            }}
+          />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[70vh] sm:min-h-[85vh] lg:min-h-screen flex items-center">
-        <div className="max-w-2xl">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0, x: -24 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 24 }}
-              transition={{ duration: TRANSITION_DURATION }}
-              className="bg-hejaaz-dark/40 backdrop-blur-[2px] p-6 sm:p-8 lg:p-10 rounded-lg border border-white/10"
-            >
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight tracking-tight">
-                {slide.title}
-              </h1>
-              <p className="mt-4 sm:mt-5 text-base sm:text-lg lg:text-xl text-white/85 leading-relaxed">
-                {slide.subtitle}
-              </p>
-              <div className="mt-8 sm:mt-10">
-                <CTAButtons variant="dark" />
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
+          {/* Advanced Industrial Gradient Overlay */}
+          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-hejaaz-primary via-hejaaz-primary/80 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-hejaaz-primary via-transparent to-transparent z-10" />
 
-      {total > 1 && (
-        <>
-          <button
-            type="button"
-            onClick={() => go('prev')}
-            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            type="button"
-            onClick={() => go('next')}
-            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
-            aria-label="Next slide"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </>
-      )}
+          {/* Content Overlay */}
+          <div className="container-content relative h-full flex items-center pt-32 lg:pt-40 z-20">
+            <div className="max-w-5xl text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-hejaaz-secondary/20 border border-hejaaz-secondary/30 mb-10 backdrop-blur-md"
+                >
+                  <div className="w-2 h-2 rounded-full bg-hejaaz-secondary animate-pulse" />
+                  <span className="text-[10px] font-black text-white uppercase tracking-[0.4em]">Engineering Excellence</span>
+                </motion.div>
 
-      {total > 1 && (
-        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-          {slides.map((s, i) => (
+                <motion.h1
+                  className="text-6xl lg:text-[6.5rem] font-black text-white leading-[0.9] tracking-tighter mb-12 uppercase"
+                >
+                  {heroSlides[currentIndex].title.split(' ').map((word, i) => (
+                    <span key={i} className={i % 2 === 1 ? 'text-hejaaz-secondary' : 'text-white'}>
+                      {word}{' '}
+                    </span>
+                  ))}
+                </motion.h1>
+
+                <motion.p
+                  className="text-xl lg:text-3xl text-white/70 font-bold mb-16 max-w-3xl leading-tight uppercase tracking-tight"
+                >
+                  {heroSlides[currentIndex].subtitle}
+                </motion.p>
+
+                <motion.div className="flex flex-wrap gap-6">
+                  <a
+                    href={heroSlides[currentIndex].link_primary}
+                    className="btn-primary !py-6 !px-16 !text-[13px] shadow-hejaaz-secondary/40"
+                  >
+                    {heroSlides[currentIndex].cta_primary}
+                  </a>
+                  <Link
+                    to={heroSlides[currentIndex].link_secondary}
+                    className="group relative inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl 
+                             font-black text-[12px] uppercase tracking-[0.2em] text-white 
+                             transition-all duration-300 border-2 border-white/20 hover:border-white hover:bg-white hover:text-hejaaz-primary"
+                  >
+                    {heroSlides[currentIndex].cta_secondary}
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Modern Navigation Controls */}
+      <div className="absolute bottom-12 right-12 z-30 hidden lg:flex items-center gap-6">
+        <div className="flex gap-3">
+          {heroSlides.map((_, index) => (
             <button
-              key={s.id}
-              type="button"
-              onClick={() => setIndex(i)}
-              className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                i === index ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-              aria-current={i === index ? 'true' : undefined}
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`h-1.5 transition-all duration-700 rounded-full ${index === currentIndex ? 'w-16 bg-hejaaz-secondary' : 'w-4 bg-white/20 hover:bg-white/40'}`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-      )}
+
+        <div className="flex gap-3 ml-4">
+          <button
+            onClick={prevSlide}
+            className="w-16 h-16 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-white hover:bg-hejaaz-secondary hover:border-hejaaz-secondary transition-all group"
+          >
+            <ChevronLeft size={24} className="group-hover:-translate-x-1 transition-transform" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="w-16 h-16 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-center text-white hover:bg-hejaaz-secondary hover:border-hejaaz-secondary transition-all group"
+          >
+            <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+      </div>
     </section>
   )
 }

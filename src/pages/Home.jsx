@@ -8,239 +8,230 @@ import {
   ArrowRight,
   CheckCircle2,
   Award,
+  Zap,
+  Monitor,
+  Bell,
+  Activity,
+  MessageCircle,
+  Headset,
 } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
-import SectionHeading from '../components/SectionHeading'
-import CTAButtons from '../components/CTAButtons'
-import ProductCard from '../components/ProductCard'
-import HeroSlider from '../components/HeroSlider'
 import productsData from '../data/products.json'
 import industriesData from '../data/industries.json'
+import ProductCard from '../components/ProductCard'
+import HeroSlider from '../components/HeroSlider'
 
-const stats = [
-  { label: 'Years of Experience', value: '20+' },
-  { label: 'OEM Served', value: '50+' },
-  { label: 'Systems Operational', value: '500+' },
-  { label: 'PAN-India Support', value: 'Yes' },
-]
-
-const coreSolutions = [
-  { icon: Shield, title: 'Crane Safety Systems', desc: 'Safe Load Indicators & overload protection for all crane types.' },
-  { icon: Cog, title: 'Industrial Automation', desc: 'PLC-based factory & process automation, vision systems, and integration.' },
-  { icon: Factory, title: 'PAN-India Support', desc: 'Installation, calibration, and AMC across India.' },
-]
-
-const whyChoose = [
-  'ISO 9001:2015 certified quality management',
-  'MSME registered — trusted by OEMs & EPCs',
-  'Engineering-led, safety-first approach',
-  'Strong after-sales and AMC support',
-]
-
-const certs = [
-  { name: 'ISO 9001:2015', desc: 'Quality management systems' },
-  { name: 'MSME', desc: 'Micro, Small & Medium Enterprises' },
-]
+/**
+ * HEJAAZ TECHNOLOGIES - HOME V4 (PREMIUM INDUSTRIAL)
+ * - Enhanced with high-contrast design system
+ * - Gradient typography (heading-reveal)
+ * - card-premium elevation system
+ */
 
 export default function Home() {
+  const fadeInSlideUp = {
+    initial: { opacity: 0, y: 15 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5, ease: 'easeOut' }
+  }
+
   return (
     <Layout>
       <SeoHead
         title="Home"
-        description="Hejaaz Technologies – Engineering Safety. Powering Industry. Crane safety systems, Safe Load Indicators, and industrial automation for OEMs, EPCs, factories. PAN-India service."
+        description="Superior safety systems that prevent crane accidents. Protect your operators, assets, and sites with Hejaaz Technologies."
         path="/"
       />
 
+      {/* ============ LEVEL 1: HERO SLIDER ============ */}
       <HeroSlider />
 
-      {/* Stats strip */}
-      <section className="bg-hejaaz-surface border-y border-hejaaz-surface">
-        <div className="container-content py-12 sm:py-14">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {stats.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="text-center"
-              >
-                <p className="text-2xl sm:text-3xl font-bold text-hejaaz-dark">{s.value}</p>
-                <p className="mt-1 text-sm text-hejaaz-gray-light uppercase tracking-wider">{s.label}</p>
-              </motion.div>
-            ))}
+      {/* ============ LEVEL 2: SCAN & UNDERSTAND ============ */}
+      <section className="bg-[var(--bg-main)] section-padding border-b border-hejaaz-border relative overflow-hidden transition-colors duration-500">
+        <div className="absolute top-0 right-0 w-1/4 h-1/4 bg-hejaaz-secondary/5 blur-[120px] -z-10" />
+
+        <div className="container-content">
+          <div className="max-w-4xl mb-24">
+            <motion.h2
+              {...fadeInSlideUp}
+              className="text-3xl lg:text-5xl font-black leading-[1] mb-10 tracking-tighter heading-reveal"
+            >
+              We make safety systems that <span className="text-hejaaz-secondary">prevent crane accidents.</span>
+            </motion.h2>
+            <motion.p
+              {...fadeInSlideUp}
+              transition={{ delay: 0.1 }}
+              className="text-xl lg:text-2xl font-bold uppercase tracking-tight text-hejaaz-secondary"
+            >
+              Protecting operators, assets, and sites with precision load monitoring.
+            </motion.p>
           </div>
-        </div>
-      </section>
 
-      {/* About Hejaaz */}
-      <section className="section-padding bg-white">
-        <div className="container-content">
-          <SectionHeading
-            title="About Hejaaz Technologies"
-            subtitle="We design, supply, and support crane safety and automation solutions across India. From Safe Load Indicators for every crane type to factory and process automation, we help you operate safely and efficiently."
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-12"
-          >
-            <CTAButtons />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Core Solutions */}
-      <section className="section-padding bg-hejaaz-surface">
-        <div className="container-content">
-          <SectionHeading
-            title="Our Core Solutions"
-            subtitle="Safety systems, automation, and nationwide support — all under one roof."
-          />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-            {coreSolutions.map((item, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Shield, title: 'Prevents Overload', desc: 'Automatically stops lifting beyond safe mechanical capacity' },
+              { icon: Bell, title: 'Audio & Visual Alerts', desc: 'Instant warnings before dangerous conditions occur' },
+              { icon: Monitor, title: 'Real-Time Monitoring', desc: 'Continuous data display for safe operator control' },
+              { icon: Award, title: 'Industrial Compliance', desc: 'Meets safety standards for modern heavy machinery' },
+            ].map((card, i) => (
               <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 24 }}
+                key={card.title}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="rounded-xl bg-white border border-hejaaz-surface p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="card-premium p-10 flex flex-col items-center text-center group"
               >
-                <div className="w-12 h-12 rounded-lg bg-hejaaz-accent/10 flex items-center justify-center">
-                  <item.icon className="w-6 h-6 text-hejaaz-accent" aria-hidden />
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-hejaaz-secondary mb-8 group-hover:bg-hejaaz-secondary group-hover:text-white transition-all bg-hejaaz-surface shadow-sm">
+                  <card.icon strokeWidth={2} size={32} />
                 </div>
-                <h3 className="mt-6 text-xl font-bold text-hejaaz-dark">{item.title}</h3>
-                <p className="mt-3 text-hejaaz-gray-light leading-relaxed">{item.desc}</p>
+                <h3 className="text-[11px] font-black uppercase tracking-[0.25em] mb-4 leading-tight transition-colors" style={{ color: 'var(--text-main)' }}>{card.title}</h3>
+                <p className="text-[11px] font-bold leading-tight uppercase tracking-tight opacity-70 transition-colors" style={{ color: 'var(--text-muted)' }}>{card.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Safety Systems for Cranes */}
-      <section className="section-padding bg-white">
+      {/* ============ LEVEL 3: TECHNICAL DETAILS (FOR ENGINEERS) ============ */}
+      <section className="section-padding bg-[var(--bg-secondary)] relative overflow-hidden transition-colors duration-500">
         <div className="container-content">
-          <SectionHeading
-            title="Safety Systems for Cranes"
-            subtitle="Safe Load Indicators (SLI) for tower, EOT, gantry, crawler, telescopic, pick & carry, forklift, and tipper trucks."
-          />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {productsData.slice(0, 8).map((p, i) => (
-              <ProductCard key={p.id} product={p} index={i} />
-            ))}
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            <motion.div {...fadeInSlideUp} className="lg:col-span-5">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-1 bg-hejaaz-secondary rounded-full" />
+                <span className="text-[10px] font-black uppercase tracking-[0.4em]" style={{ color: 'var(--text-muted)' }}>Reliability Metrics</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-black mb-10 leading-[0.95] tracking-tighter heading-reveal">
+                Engineered for <br />
+                <span className="text-hejaaz-secondary">Heavy Duty.</span>
+              </h2>
+              <div className="space-y-4">
+                {[
+                  'Load Accuracy: ±1.5% of Full Scale',
+                  'Response Time: < 100 milliseconds',
+                  'Operational Temp: -10°C to 55°C',
+                  'Connectivity: Wi-fi AP & Modbus Module',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 p-5 bg-[var(--bg-main)] rounded-xl border border-hejaaz-border shadow-sm">
+                    <Zap className="text-hejaaz-secondary" size={16} />
+                    <span className="text-[11px] font-black uppercase tracking-widest" style={{ color: 'var(--text-main)' }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              {...fadeInSlideUp}
+              transition={{ delay: 0.2 }}
+              className="lg:col-span-7"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-hejaaz-secondary/10 rounded-[3rem] blur-3xl" />
+                <div className="relative rounded-[3rem] p-4 lg:p-6 transition-all duration-500">
+                  <div className="aspect-video flex items-center justify-center p-0 overflow-hidden group">
+                    <img
+                      src="/images/manuals/sli-eot-schematic.png"
+                      alt="System Architecture"
+                      className="w-full h-auto max-h-full object-contain group-hover:scale-110 transition-transform duration-1000 mix-blend-multiply dark:mix-blend-normal dark:brightness-125"
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
-          <div className="mt-14 text-center">
-            <Link to="/products" className="btn-primary inline-flex items-center gap-2">
-              View all products <ArrowRight size={18} aria-hidden />
+        </div>
+      </section>
+
+      {/* ============ LEVEL 4: PRODUCT SPOTLIGHT ============ */}
+      <section className="section-padding bg-[var(--bg-main)] transition-colors duration-500">
+        <div className="container-content">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
+            <div className="max-w-2xl">
+              <h2 className="text-[11px] font-black text-hejaaz-secondary uppercase tracking-[0.4em] mb-6 font-bold">Our Solutions</h2>
+              <h2 className="text-3xl lg:text-5xl font-black leading-none tracking-tighter heading-reveal">Safety Systems for <br />Heavy Lifting</h2>
+            </div>
+            <Link
+              to="/products"
+              className="group flex items-center gap-4 text-[12px] font-black uppercase tracking-[0.2em] transition-colors hover:text-hejaaz-secondary font-bold text-main"
+            >
+              Explore All Products <ArrowRight className="group-hover:translate-x-2 transition-transform" />
             </Link>
           </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {productsData.slice(0, 3).map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Industries Served */}
-      <section className="section-padding bg-hejaaz-surface">
+      {/* ============ LEVEL 5: INDUSTRY INTEGRATION ============ */}
+      <section className="section-padding bg-[var(--bg-secondary)] border-y border-hejaaz-border transition-colors duration-500">
         <div className="container-content">
-          <SectionHeading
-            title="Industries Served"
-            subtitle="Crane OEMs, EPCs, factories, ports, mining, power, and safety auditors."
-          />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-[11px] font-black text-hejaaz-secondary uppercase tracking-[0.4em] mb-6">Sector Expertise</h2>
+            <h2 className="text-3xl lg:text-5xl font-black tracking-tighter heading-reveal">Integration across <br />safety-critical sectors.</h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {industriesData.slice(0, 8).map((ind, i) => (
               <motion.div
                 key={ind.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="rounded-xl bg-white border border-hejaaz-surface p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300"
-              >
-                <h3 className="font-bold text-hejaaz-dark">{ind.name}</h3>
-                <p className="mt-2 text-sm text-hejaaz-gray-light line-clamp-2 leading-relaxed">{ind.description}</p>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link to="/industries" className="btn-secondary inline-flex items-center gap-2">
-              Explore industries <ArrowRight size={18} aria-hidden />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="section-padding bg-white">
-        <div className="container-content">
-          <SectionHeading
-            title="Why Choose Us"
-            subtitle="Quality, compliance, and after-sales you can rely on."
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-16 grid sm:grid-cols-2 gap-6 max-w-3xl"
-          >
-            {whyChoose.map((item, i) => (
-              <div key={item} className="flex gap-4">
-                <CheckCircle2 className="shrink-0 w-6 h-6 text-hejaaz-accent mt-0.5" aria-hidden />
-                <span className="text-hejaaz-gray-light leading-relaxed">{item}</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Certifications strip */}
-      <section className="section-padding bg-hejaaz-surface">
-        <div className="container-content">
-          <SectionHeading
-            title="Certifications"
-            subtitle="ISO 9001:2015 and MSME registered. Industry compliance at the core."
-          />
-          <div className="mt-16 flex flex-wrap gap-8">
-            {certs.map((c) => (
-              <motion.div
-                key={c.name}
                 initial={{ opacity: 0, scale: 0.98 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="flex items-center gap-5 px-8 py-5 bg-white rounded-xl border border-hejaaz-surface shadow-card"
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="card-premium p-10 group"
               >
-                <Award className="w-10 h-10 text-hejaaz-accent shrink-0" aria-hidden />
-                <div>
-                  <h3 className="font-bold text-hejaaz-dark">{c.name}</h3>
-                  <p className="text-sm text-hejaaz-gray-light mt-0.5">{c.desc}</p>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-8 bg-hejaaz-surface border border-hejaaz-border group-hover:bg-hejaaz-secondary/10 transition-colors">
+                  <Factory className="w-5 h-5 text-hejaaz-secondary" />
                 </div>
+                <h3 className="text-[12px] font-black uppercase tracking-[0.2em] mb-4 transition-colors text-main">{ind.name}</h3>
+                <p className="text-[11px] font-bold leading-tight uppercase tracking-tight opacity-70 transition-colors" style={{ color: 'var(--text-muted)' }}>{ind.description}</p>
               </motion.div>
             ))}
-          </div>
-          <div className="mt-10">
-            <Link to="/certifications" className="text-hejaaz-accent font-semibold hover:underline inline-flex items-center gap-2">
-              Certifications & compliance <ArrowRight size={16} aria-hidden />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA banner */}
-      <section className="section-padding bg-hejaaz-dark text-white">
-        <div className="container-content">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-            <div className="max-w-xl">
-              <h2 className="heading-md text-white">PAN-India Service Support</h2>
-              <p className="mt-4 text-white/70 leading-relaxed">
-                Installation, calibration, and Annual Maintenance Contracts (AMC) across India. We're where you need us.
+      {/* ============ LEVEL 6: BANNER ============ */}
+      <section className="bg-hejaaz-secondary py-24 lg:py-32 text-white relative overflow-hidden transition-colors duration-500">
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+        <div className="container-content relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/20 border border-white/30 mb-8 font-black uppercase tracking-widest text-[10px]">
+                <MapPin size={12} /> PAN-India Service Network
+              </div>
+              <h2 className="text-4xl lg:text-6xl font-black tracking-tighter leading-[0.95] mb-10 uppercase">
+                Deployed across <br /><span className="text-black/30">1,200+ Sites.</span>
+              </h2>
+              <p className="text-xl font-bold uppercase tracking-tight opacity-80 mb-12">
+                We provide site-ready safety systems with complete documentation and technical support.
               </p>
-              <div className="mt-6 flex items-center gap-3 text-hejaaz-accent-light">
-                <MapPin className="w-5 h-5 shrink-0" aria-hidden />
-                <span className="text-sm">192-2A, Haji Mohammed Abdul Hafiz Sahib Street, Dashamakan, Chennai – 600012</span>
+              <div className="flex flex-wrap gap-4">
+                <Link to="/contact" className="bg-white text-hejaaz-secondary !py-6 !px-12 !text-[13px] uppercase tracking-[0.2em] font-black rounded-2xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3">
+                  <Headset size={20} /> Request Consultation
+                </Link>
               </div>
             </div>
-            <CTAButtons variant="dark" className="shrink-0" />
+            <div className="hidden lg:flex justify-end">
+              <div className="relative">
+                <div className="w-80 h-80 rounded-full border-2 border-white/10 flex items-center justify-center animate-spin-slow">
+                  <div className="w-64 h-64 rounded-full border-2 border-white/20 flex items-center justify-center">
+                    <div className="w-48 h-48 rounded-full border-2 border-white/40 flex items-center justify-center" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Shield size={100} className="text-white animate-pulse" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

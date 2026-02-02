@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
-import { Award, Shield, FileCheck } from 'lucide-react'
+import { Award, Shield, FileCheck, CheckCircle2 } from 'lucide-react'
 import Layout from '../components/Layout'
 import SeoHead from '../components/SeoHead'
 import PageHeader from '../components/PageHeader'
-import SectionHeading from '../components/SectionHeading'
 import CTAButtons from '../components/CTAButtons'
 
 const certs = [
@@ -36,64 +35,106 @@ export default function Certifications() {
     <Layout>
       <SeoHead title="Certifications & Compliance" description="ISO 9001:2015, MSME. Industry compliance for crane safety and automation." path="/certifications" />
       <PageHeader
-        title="Certifications & Compliance"
-        subtitle="ISO 9001:2015 certified. MSME registered. Industry compliance at the core of what we do."
+        title="Compliance & Standards"
+        subtitle="Adhering to IS 14475, Factory Acts, and ISO frameworks. Quality is our baseline."
+        backgroundImage="/images/industrial-bg-factory.png"
       />
 
-      <section className="section-padding bg-white">
-        <div className="container-content max-w-narrow mx-auto">
-          <SectionHeading
-            title="Our Certifications"
-            subtitle="Quality and compliance you can trust."
-            animate={false}
-          />
-          <div className="mt-16 space-y-8">
-            {certs.map((c, i) => (
-              <motion.div
-                key={c.id}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex flex-col sm:flex-row gap-6 p-8 rounded-xl border border-hejaaz-surface bg-hejaaz-surface/30 shadow-card"
-              >
-                <div className="shrink-0 w-16 h-16 rounded-xl bg-hejaaz-accent/10 flex items-center justify-center">
-                  <c.icon className="w-8 h-8 text-hejaaz-accent" aria-hidden />
-                </div>
-                <div>
-                  <h2 className="text-xl font-bold text-hejaaz-dark">{c.name}</h2>
-                  <p className="text-sm text-hejaaz-accent font-medium mt-1">{c.desc}</p>
-                  <p className="mt-4 text-hejaaz-gray-light leading-relaxed">{c.detail}</p>
-                </div>
-              </motion.div>
-            ))}
+      {/* ============ 1️⃣ QUALITY FRAMEWORK ============ */}
+      <section className="section-padding-sm bg-[var(--card-bg)] border-b border-[var(--card-border)] transition-colors duration-300">
+        <div className="container-content">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-0.5 rounded-full bg-hejaaz-secondary" />
+                <h2 className="text-[10px] font-black uppercase tracking-[0.2em] transition-colors" style={{ color: 'var(--text-muted)' }}>Verified Credentials</h2>
+              </div>
+              <h1 className="text-3xl lg:text-5xl font-black tracking-tight mb-8 transition-colors" style={{ color: 'var(--text-main)' }}>
+                Systems built to rigorous industrial law.
+              </h1>
+              <p className="text-[var(--text-muted)] text-[15px] leading-relaxed font-medium transition-colors">
+                We maintain strict adherence to workplace safety regulations (Factory Acts) and international engineering standards to ensure our products are legally compliant and technically superior.
+              </p>
+            </motion.div>
+
+            <div className="space-y-4">
+              {certs.map((c, i) => (
+                <motion.div
+                  key={c.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-[var(--bg-secondary)] dark:bg-white/5 p-6 rounded-xl border border-[var(--card-border)] flex gap-6 group hover:border-hejaaz-secondary/30 transition-all"
+                >
+                  <div className="shrink-0 w-12 h-12 rounded-lg bg-[var(--card-bg)] border border-[var(--card-border)] flex items-center justify-center text-hejaaz-secondary transition-colors">
+                    <c.icon size={24} strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-widest mb-1 transition-colors" style={{ color: 'var(--text-main)' }}>{c.name}</h3>
+                    <p className="text-[10px] font-bold uppercase tracking-tight mb-3 transition-colors" style={{ color: 'var(--text-muted)' }}>{c.desc}</p>
+                    <p className="text-[11px] font-medium leading-relaxed transition-colors" style={{ color: 'var(--text-muted)' }}>{c.detail}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-hejaaz-dark text-white">
-        <div className="container-content max-w-narrow mx-auto">
-          <div className="flex items-center gap-4 mb-10">
-            <div className="w-12 h-12 rounded-xl bg-hejaaz-accent/20 flex items-center justify-center">
-              <Shield className="w-6 h-6 text-hejaaz-accent-light" aria-hidden />
+      {/* ============ 2️⃣ COMPLIANCE MATRIX ============ */}
+      <section className="section-padding-sm bg-[var(--bg-main)] transition-colors duration-300">
+        <div className="container-content">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5">
+              <h2 className="text-[10px] font-black uppercase tracking-[0.2em] mb-4 flex items-center gap-3 transition-colors" style={{ color: 'var(--text-muted)' }}>
+                <div className="w-1.5 h-1.5 rounded-full bg-hejaaz-secondary" />
+                Engineering Standards
+              </h2>
+              <h3 className="text-xl font-black uppercase tracking-tight mb-6 transition-colors" style={{ color: 'var(--text-main)' }}>Global Safety Protocols</h3>
+              <p className="text-[var(--text-muted)] text-[13px] font-medium leading-relaxed transition-colors">
+                Our design engine strictly follows the logic defined by these regulatory bodies to guarantee error-free intervention during lifting operations.
+              </p>
             </div>
-            <h2 className="heading-md text-white">Industry compliance focus</h2>
+
+            <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+              {complianceFocus.map((item, i) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="p-5 bg-[var(--card-bg)] border border-[var(--card-border)] rounded-xl flex items-center gap-4 shadow-sm"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-hejaaz-secondary shrink-0" />
+                  <span className="text-[10px] font-black uppercase tracking-widest leading-tight transition-colors" style={{ color: 'var(--text-main)' }}>{item}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <ul className="space-y-4">
-            {complianceFocus.map((item, i) => (
-              <motion.li
-                key={item}
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.04 }}
-                className="flex gap-3 text-white/90 leading-relaxed"
-              >
-                <span className="text-hejaaz-accent-light shrink-0">•</span> {item}
-              </motion.li>
-            ))}
-          </ul>
-          <div className="mt-14">
-            <CTAButtons variant="dark" />
+        </div>
+      </section>
+
+      {/* ============ 3️ CALL TO ACTION ============ */}
+      <section className="section-padding-sm bg-[var(--card-bg)] transition-colors duration-300">
+        <div className="container-content">
+          <div className="bg-hejaaz-secondary rounded-2xl p-10 lg:p-20 text-center text-white relative overflow-hidden">
+            <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <h2 className="text-3xl lg:text-4xl font-black mb-6 text-white">Need Project Compliance Support?</h2>
+              <p className="text-white/80 text-lg font-medium mb-12">
+                Our engineering team provides technical documentation, sensor calibration certificates, and compliance audits for EPC project approvals.
+              </p>
+              <div className="flex justify-center">
+                <CTAButtons variant="dark" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
